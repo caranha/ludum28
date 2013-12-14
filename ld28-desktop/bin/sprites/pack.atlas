@@ -31,3 +31,29 @@ DinoRoar1
   orig: 64, 64
   offset: 0, 0
   index: 2
+
+pack2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+parallax/Ground1
+  rotate: false
+  xy: 2, 2
+  size: 900, 200
+  orig: 900, 200
+  offset: 0, 0
+  index: -1
+parallax/Ground2
+  rotate: false
+  xy: 2, 204
+  size: 900, 320
+  orig: 900, 320
+  offset: 0, 0
+  index: -1
+parallax/Ground3
+  rotate: false
+  xy: 2, 526
+  size: 900, 480
+  orig: 900, 480
+  offset: 0, 0
+  index: -1

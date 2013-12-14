@@ -7,6 +7,7 @@ import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
+import org.castelodelego.ludum28.parallax.ParallaxBackground;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
@@ -26,6 +27,8 @@ public class GameScreen implements Screen {
 	Player player;
 	
 	StageTimeline timeline;
+	
+	ParallaxBackground background;
 	
 	
 	int roartimer = 0; // TODO: Move this to the Player Class;
@@ -49,6 +52,8 @@ public class GameScreen implements Screen {
 		
 		friends.clear();
 		enemies.clear();
+		
+		background = t.getParallax();
 
 		Gdx.input.setInputProcessor(Globals.getGameController());
 	}
@@ -63,8 +68,9 @@ public class GameScreen implements Screen {
 		tickGame(delta);
 		
 		/*** Rendering the Game ***/
-		debugRender();
+		background.render(delta);
 		spriteRender();
+		debugRender();
 	}
 
 	void tickGame(float delta)

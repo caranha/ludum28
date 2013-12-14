@@ -26,7 +26,8 @@
 
 - [X] Add Sprites for player
 - [ ] Add Sprites for enemies
-- [ ] Add Parallax Background
+- [X] Add Parallax Background
+- [X] Draw Parallax Background
 
 - [X] Add Screen Limits for the player
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)

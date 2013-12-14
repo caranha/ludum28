@@ -14,6 +14,8 @@ import org.castelodelego.ludum28.Constants;
 
 public class MainScreen implements Screen, InputProcessor {
 
+	
+	
 	boolean gotogame = false;
 	boolean keyboard = true;
 	
@@ -27,7 +29,6 @@ public class MainScreen implements Screen, InputProcessor {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
 		
 		Globals.batch.begin();
 		Globals.debugtext.setColor(Color.YELLOW);

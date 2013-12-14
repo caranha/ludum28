@@ -4,8 +4,11 @@ import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.BasicEnemy;
+import org.castelodelego.ludum28.parallax.ParallaxBackground;
+import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
 public class RandomTimeline implements StageTimeline {
@@ -45,6 +48,19 @@ public class RandomTimeline implements StageTimeline {
 	public void setSpeed(float s)
 	{
 		CD_Timer = s;
+	}
+
+	@Override
+	public ParallaxBackground getParallax() {
+		
+		TextureAtlas atlas = Globals.manager.get("sprites/pack.atlas", TextureAtlas.class);
+		ParallaxBackground test = new ParallaxBackground(new ParallaxLayer[]{
+	            new ParallaxLayer(atlas.findRegion("parallax/Ground3"),new Vector2(0.1f,0),new Vector2(0, Constants.SCREEN_H)),
+	            new ParallaxLayer(atlas.findRegion("parallax/Ground2"),new Vector2(0.5f,0),new Vector2(0, Constants.SCREEN_H)),
+	            new ParallaxLayer(atlas.findRegion("parallax/Ground1"),new Vector2(1.0f,0),new Vector2(0, Constants.SCREEN_H))
+	      }, 800, 480,new Vector2(200,0));
+		// TODO Auto-generated method stub
+		return test;
 	}
 
 }

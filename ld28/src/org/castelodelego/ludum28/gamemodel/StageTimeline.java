@@ -1,5 +1,7 @@
 package org.castelodelego.ludum28.gamemodel;
 
+import org.castelodelego.ludum28.parallax.ParallaxBackground;
+
 public interface StageTimeline {
 
 	/**
@@ -18,4 +20,7 @@ public interface StageTimeline {
 	 * @return
 	 */
 	public boolean testWin();
+	
+	public ParallaxBackground getParallax();
+	
 }
