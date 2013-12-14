@@ -86,7 +86,6 @@ public class Flyer {
 	 */
 	public void doCollision(Flyer f)
 	{
-		Gdx.app.log("Collision", "My hitpoints: "+hitpoints);
 		hitpoints -= 1;
 	}
 	

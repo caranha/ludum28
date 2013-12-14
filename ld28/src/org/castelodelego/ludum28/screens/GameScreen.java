@@ -9,12 +9,15 @@ import org.castelodelego.ludum28.entities.PeaShooter;
 import org.castelodelego.ludum28.entities.Shooter;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
+import org.castelodelego.ludum28.input.KeyboardGameController;
+import org.castelodelego.ludum28.input.MouseGameController;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
@@ -41,7 +44,9 @@ public class GameScreen implements Screen {
 
 	public void reset()
 	{
+		setTestPlayer();
 		timeline.reset();
+		Gdx.input.setInputProcessor(Globals.gamecontroller);
 	}
 	
 	public void setTimeline(StageTimeline t)
@@ -72,14 +77,6 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		/** Debug input **/
-		if (Gdx.input.isTouched())
-		{
-			Vector3 rawtouch = new Vector3(Gdx.input.getX(), Gdx.input.getY(),0);
-			Globals.cam.unproject(rawtouch);	
-			setPlayerTarget(new Vector2(rawtouch.x,rawtouch.y));
-		}
-		
 		if (player == null)
 			setTestPlayer();
 		
@@ -175,6 +172,11 @@ public class GameScreen implements Screen {
 	{
 		player.setTarget(target);
 	}
+	public void doPlayerRoar()
+	{
+		Gdx.app.log("ROAAAAAAR", "ROOOOOAAAAAAAAARRRRR");
+	}
+	
 	
 	/**
 	 * This is used to add a new Flyer to the Scene;

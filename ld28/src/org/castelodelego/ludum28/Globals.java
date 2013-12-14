@@ -2,6 +2,7 @@ package org.castelodelego.ludum28;
 
 import java.util.Random;
 
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -26,6 +27,8 @@ public class Globals {
 	public static Random dice;
 		
 	public static BitmapFont debugtext;
+	
+	public static InputProcessor gamecontroller;
 	
 	
 	static void init()

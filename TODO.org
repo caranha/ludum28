@@ -6,14 +6,25 @@
 - [X] Add enemies
 - [X] Add random generation of enemies
 - [X] Collision between player shots and enemies
-- [ ] Add keyboard controls
-- [ ] Menu screen selects between keyboard controls and mouse controls
+
+- [X] Add keyboard controls
+- [X] Menu screen selects between keyboard controls and mouse controls
+
 - [ ] Add roar
+- [ ] Add pew pew (small)
 
+- [ ] Add Two upgrades (Big shot and multiple shot)
+- [ ] Add Upgrade selection screen
+- [ ] Add Dying
 
+- [ ] Add Scoring
+- [ ] Add Max Score
 
 - [ ] Add "Enemy AI" (linked function that controls enemy movement)
 - [ ] Add "Death Function" (linked functions that control when an enemy dies)
+
+- [ ] Add Parallax Background
+- [ ] Add Sprites for player and enemies
 
 * Enemies
 - [ ] Random moving Enemy
@@ -23,24 +34,6 @@
 - [ ] Enemy that tries to stay away from the player
 - [ ] Strong enemy that fill the screen with shots
 - [ ] Boss with a shot that covers most of the screen
-
-* Entity Class structure
-- Flyer
-- Hero
-
-* Scenes
-  - [ ] Gameplay Scene
-  - [ ] Main Menu Scene
-  - [ ] Boost Selection Scene
-  - [ ] About Scene
-  - [ ] Game Over Scene (Game over after all boosts are lost)
-
-* Gameplay
-  - You move your Dino around the screen
-  - Shooting is done automatically
-  - If you die, you lose the option to select that bonus
-  - Levels are generated randomly (How to do this well?)
-    - Maybe there is a level hint?
 
 * Boosts
   - [ ] Wide Shooter (Shoots five lasers in an arc)

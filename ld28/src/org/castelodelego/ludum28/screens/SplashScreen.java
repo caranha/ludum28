@@ -96,7 +96,7 @@ public class SplashScreen implements Screen {
 		
 
 		if ((fade <= 0) && (loaddone))
-			((Game) Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
+			((Game) Gdx.app.getApplicationListener()).setScreen(Ludum28.mainScreen);
 	}
 
 	@Override
