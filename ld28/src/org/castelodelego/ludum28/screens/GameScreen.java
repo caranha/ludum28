@@ -97,7 +97,8 @@ public class GameScreen implements Screen {
 			aux = it.next();
 			if (aux.getRemove())
 			{
-				Globals.score += aux.getScore();
+				if (aux.getHitpoints() <= 0) 
+					Globals.score += aux.getScore();
 				it.remove();
 			}
 			else

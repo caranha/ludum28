@@ -1,6 +1,8 @@
 package org.castelodelego.ludum28.entities;
 
 
+import org.castelodelego.ludum28.Globals;
+
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -16,11 +18,15 @@ public class BasicEnemy extends Flyer
 	float ydir = 0;
 	float ydelta = 1;
 	
-	public BasicEnemy(Vector2 pos, Vector2 htb) 
+	public BasicEnemy(Vector2 pos) 
 	{
-		super(pos, htb);
+		super(pos, new Vector2(28,28));
 		setTeam(Flyer.T_ENEMY);
 		setSpeed(100);
+		offsetx = 2;
+		offsety = 4;
+		
+		setAnim(Globals.animman.get("SimpleEnemy"));
 	}
 	
 	
@@ -59,12 +65,7 @@ public class BasicEnemy extends Flyer
 
 	@Override
 	public void doCollision(Flyer f) {
-		hitpoints -= 1;		
+		hitpoints -= 1;
 	}
 
-	@Override
-	public void renderSprite() {
-		// TODO Auto-generated method stub
-		
-	}
 }

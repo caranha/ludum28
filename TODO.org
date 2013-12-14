@@ -25,11 +25,27 @@
 - [X] Add "Death Function" (linked functions that control when an enemy dies)
 
 - [X] Add Sprites for player
-- [ ] Add Sprites for enemies
 - [X] Add Parallax Background
 - [X] Draw Parallax Background
-
 - [X] Add Screen Limits for the player
+
+- [X] Add Sprites for Simple Enemy
+- [X] Add Gun Offset
+- [X] Add "setAnimation" to Flyer Class
+- [X] SpriteRender happens only if Animation is not null.
+
+- [ ] Add Increasing Difficulty
+- [ ] Add "shaking" effect to Flyer Class
+- [ ] Add laser sprite
+- [ ] Add Explosion sound
+
+- [ ] Add Explosion Effect (new Flyer Subclass) (Animation passed by parameter)
+  - Explosion has life time
+  - Explosion has "fade" flag - when this flag is on, rendering is faded based 
+    on life time
+
+- [ ] Add Abundant Music soundtrack
+
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option
 

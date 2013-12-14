@@ -31,7 +31,7 @@ public class RandomTimeline implements StageTimeline {
 		{
 			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
 			
-			BasicEnemy mook = new BasicEnemy(pos, new Vector2(10,10));
+			BasicEnemy mook = new BasicEnemy(pos);
 			mook.goUp(Globals.dice.nextBoolean());
 			mook.setScore(3);
 			

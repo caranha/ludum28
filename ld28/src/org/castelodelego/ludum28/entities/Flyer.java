@@ -1,6 +1,9 @@
 package org.castelodelego.ludum28.entities;
 
+import org.castelodelego.ludum28.Globals;
+
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
@@ -17,6 +20,8 @@ public abstract class Flyer {
 
 	Vector2 position; // current position
 	Vector2 direction; // which way the flyer wants to go (relative to the flyer)
+	float offsetx;
+	float offsety;
 	
 	float speed = 100; // speed in cm/second
 	Vector2 hitbox; // the X and Y size of the hitbox for this Flyer
@@ -24,7 +29,10 @@ public abstract class Flyer {
 	boolean remove; // This flyer is no longer used and can be removed
 	int hitpoints = 1; // the number of hitpoints that this flyer has
 	
-	Shooter gun; // The function used to create shots
+	Shooter gun; // The function used to create shots	
+
+	Animation anim = null;
+	float animcount = 0;
 	
 	// Team indicates if this flyer is a player or an enemy
 	public static final int T_PLAYER = 0;
@@ -48,6 +56,7 @@ public abstract class Flyer {
 	public void update(float delta)
 	{
 		float mov = speed*delta; // maximum movement this tick
+		animcount += delta;
 		direction.nor();		
 		position.x += direction.x*mov;
 		position.y += direction.y*mov;
@@ -64,7 +73,6 @@ public abstract class Flyer {
 	abstract boolean testRemoval();
 	abstract void artificialIntelligence(float delta);
 	abstract public void doCollision(Flyer f);
-	abstract public void renderSprite();
 	
 	/**
 	 * Tests if this flier collides with a hitbox
@@ -98,6 +106,11 @@ public abstract class Flyer {
 		linedrawer.line(position.x, position.y, position.x+direction.x, position.y+direction.y);
 	}
 	
+	public void renderSprite()
+	{
+		if (anim!=null)
+			Globals.batch.draw(anim.getKeyFrame(animcount), position.x-offsetx, position.y-offsety);
+	}
 	
 	
 	// SETTERS
@@ -150,6 +163,16 @@ public abstract class Flyer {
 		scorevalue = s;
 	}
 	
+	public void setAnim(Animation a)
+	{
+		anim = a;
+	}
+	
+	public void setHitpoints(int n)
+	{
+		hitpoints = n;
+	}
+	
 	// GETTERS
 	
 	public Vector2 getDirection()
@@ -185,4 +208,12 @@ public abstract class Flyer {
 	{
 		return scorevalue;
 	}
+	
+	public int getHitpoints()
+	{
+		return hitpoints;
+	}
+	
+	
+	
 }

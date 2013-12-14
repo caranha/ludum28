@@ -14,10 +14,7 @@ public class Player extends Flyer {
 	public static final int MODE_BEAM = 1;
 	public static final int MODE_SHIELD = 2;
 	public static final int MODE_SPEED = 3;
-	
-	public static final int offsetx = 11;
-	public static final int offsety = 8;
-	
+		
 	public static Vector2 limit_bl = new Vector2(10,10);
 	public static Vector2 limit_tr = new Vector2(Constants.SCREEN_W - 64, Constants.SCREEN_H - 64);
 	
@@ -41,6 +38,9 @@ public class Player extends Flyer {
 		Shooter pew = new PeaShooter();
 		pew.setCoolDown(0.2f);		
 		setGun(pew);
+		
+		offsetx = 11;
+		offsety = 8;
 		
 		switch (mode)
 		{
@@ -82,6 +82,11 @@ public class Player extends Flyer {
 				
 			roar_timer += delta;
 			timer += delta;
+			
+			if (roar_timer < roar_interval)
+				setAnim(roaranim[mode]);
+			else
+				setAnim(modeanim[mode]);
 		}
 		
 		if (hitpoints <= 0)
@@ -134,12 +139,12 @@ public class Player extends Flyer {
 		hitpoints -= 1;
 	}
 
-	@Override
-	public void renderSprite() {
-		if (roar_timer < roar_interval)
-			Globals.batch.draw(roaranim[mode].getKeyFrame(timer), position.x-offsetx, position.y-offsety);
-		else	
-			Globals.batch.draw(modeanim[mode].getKeyFrame(timer), position.x-offsetx, position.y-offsety);
-	}
+//	@Override
+//	public void renderSprite() {
+//		if (roar_timer < roar_interval)
+//			Globals.batch.draw(roaranim[mode].getKeyFrame(timer), position.x-offsetx, position.y-offsety);
+//		else	
+//			Globals.batch.draw(modeanim[mode].getKeyFrame(timer), position.x-offsetx, position.y-offsety);
+//	}
 
 }

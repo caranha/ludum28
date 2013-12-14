@@ -5,30 +5,44 @@ filter: Nearest,Nearest
 repeat: none
 DinoMode1
   rotate: false
-  xy: 2, 2
+  xy: 2, 36
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode1
   rotate: false
-  xy: 68, 2
+  xy: 68, 36
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar1
   rotate: false
-  xy: 134, 2
+  xy: 134, 36
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar1
   rotate: false
-  xy: 200, 2
+  xy: 200, 36
   size: 64, 64
   orig: 64, 64
+  offset: 0, 0
+  index: 2
+SimpleEnemy
+  rotate: false
+  xy: 2, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+SimpleEnemy
+  rotate: false
+  xy: 266, 68
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 2
 
