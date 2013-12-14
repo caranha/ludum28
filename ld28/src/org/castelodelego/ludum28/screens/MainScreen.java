@@ -2,7 +2,6 @@ package org.castelodelego.ludum28.screens;
 
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.screens.GameScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -10,15 +9,13 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.input.GestureDetector;
 
 import org.castelodelego.ludum28.Constants;
-import org.castelodelego.ludum28.input.KeyboardGameController;
-import org.castelodelego.ludum28.input.MouseGameController;
 
 public class MainScreen implements Screen, InputProcessor {
 
 	boolean gotogame = false;
+	boolean keyboard = true;
 	
 	public MainScreen()
 	{
@@ -40,8 +37,8 @@ public class MainScreen implements Screen, InputProcessor {
 		
 		if (gotogame)
 		{
-			((GameScreen) Ludum28.gameScreen).reset();
-			((Game) Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
+			Globals.startGame(keyboard);
+			((Game) Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 		}
 
 	}
@@ -85,7 +82,7 @@ public class MainScreen implements Screen, InputProcessor {
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		Globals.gamecontroller = new GestureDetector(new MouseGameController());
+		keyboard = false;
 		gotogame = true;
 		return true;
 	}
@@ -94,7 +91,7 @@ public class MainScreen implements Screen, InputProcessor {
 	public boolean keyTyped(char character) {
 		if (character == ' ')
 		{
-			Globals.gamecontroller = new KeyboardGameController();
+			keyboard = true;
 			gotogame = true;
 			return true;
 		}

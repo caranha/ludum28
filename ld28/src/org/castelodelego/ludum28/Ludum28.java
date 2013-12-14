@@ -2,6 +2,7 @@ package org.castelodelego.ludum28;
 
 import org.castelodelego.ludum28.screens.GameScreen;
 import org.castelodelego.ludum28.screens.MainScreen;
+import org.castelodelego.ludum28.screens.SelectionScreen;
 import org.castelodelego.ludum28.screens.SplashScreen;
 
 import com.badlogic.gdx.Application;
@@ -15,7 +16,11 @@ public class Ludum28 extends Game {
 
 	public static Screen splashScreen;
 	public static Screen mainScreen;
+	public static Screen selectionScreen;
 	public static Screen gameScreen;
+	
+	public static Screen gameOverScreen;
+	public static Screen aboutScreen;
 
 	
 	@Override
@@ -31,6 +36,7 @@ public class Ludum28 extends Game {
 		splashScreen = new SplashScreen();
 		mainScreen = new MainScreen();
 		gameScreen = new GameScreen();
+		selectionScreen = new SelectionScreen();
 		
 		setScreen(splashScreen);
 		

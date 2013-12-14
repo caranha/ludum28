@@ -17,13 +17,25 @@ public class Player extends Flyer {
 	
 	boolean alive = true;
 	
-	public Player(Vector2 pos, int mode) {
-		super(pos, new Vector2(20,20));
+	public Player(int mode) {
+		super(new Vector2(0,0), new Vector2(20,20));
 		
 		setSpeed(200);
 		Shooter pew = new PeaShooter();
 		pew.setCoolDown(0.2f);		
 		setGun(pew);
+		
+		switch (mode)
+		{
+		case MODE_WIDE: // Wide shooting mode shoots 5 shots at a time;
+			setGun(new FiveShooter());
+			break;
+		case MODE_SPEED:
+			setSpeed(350);
+		}
+		
+		
+
 	}
 	
 	public void update(float delta)

@@ -15,7 +15,7 @@ public class RandomTimeline implements StageTimeline {
 	float totaltime = 0;
 	
 	@Override
-	public void reset() {
+	public void reset(int difficulty) {
 		cooldown = 0;
 	}
 

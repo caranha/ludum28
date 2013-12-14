@@ -3,10 +3,8 @@ package org.castelodelego.ludum28.screens;
 import java.util.Iterator;
 
 import org.castelodelego.ludum28.Globals;
-import org.castelodelego.ludum28.entities.BasicEnemy;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.entities.Player;
-import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 
 import com.badlogic.gdx.Gdx;
@@ -39,41 +37,23 @@ public class GameScreen implements Screen {
 		enemies = new Array<Flyer>();		
 	}
 
-	public void reset()
+	public void reset(Player p, StageTimeline t, int difficulty)
 	{
-		setTestPlayer();
-		timeline.reset();
-		Gdx.input.setInputProcessor(Globals.gamecontroller);
-	}
-	
-	public void setTimeline(StageTimeline t)
-	{
+		player = p;
+		p.setPosition(new Vector2(20,20));
+
 		timeline = t;
-	}
-	
-	/** 
-	 * Debug function that sets a test player
-	 * FIXME: Debug Function
-	 */
-	void setTestPlayer()
-	{
-		player = new Player(new Vector2(20,20), Player.MODE_WIDE); 
+		timeline.reset(difficulty);
 		
-		addFlyer(new BasicEnemy(new Vector2(600,200),new Vector2(20,20)));
-		RandomTimeline t = new RandomTimeline();
-		t.setSpeed(0.2f);
-		timeline = t;
+		Gdx.input.setInputProcessor(Globals.getGameController());
 	}
-	
+			
 	
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		if (player == null)
-			setTestPlayer();
-		
 		/*** Updating the Game ***/
 		tickGame(delta);
 		
@@ -131,7 +111,7 @@ public class GameScreen implements Screen {
 			
 		}
 		
-		
+		// UPDATING THE TIMELINE
 		
 		if (timeline != null)
 			timeline.update(delta);
