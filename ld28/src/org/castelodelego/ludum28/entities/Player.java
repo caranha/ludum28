@@ -16,9 +16,11 @@ public class Player extends Flyer {
 	float roar_timer = 0;
 	
 	boolean alive = true;
+	int mode;
 	
-	public Player(int mode) {
+	public Player(int m) {
 		super(new Vector2(0,0), new Vector2(20,20));
+		mode = m;
 		
 		setSpeed(200);
 		Shooter pew = new PeaShooter();
@@ -72,7 +74,16 @@ public class Player extends Flyer {
 		return alive;
 	}
 	
+	public int getMode()
+	{
+		return mode;
+	}
+	
 
+	
+	
+	//** Override functions from Flyer **//
+	
 	@Override
 	boolean testRemoval() {
 		return false;

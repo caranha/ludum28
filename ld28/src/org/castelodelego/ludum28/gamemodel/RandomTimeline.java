@@ -17,11 +17,13 @@ public class RandomTimeline implements StageTimeline {
 	@Override
 	public void reset(int difficulty) {
 		cooldown = 0;
+		totaltime = 0;
 	}
 
 	@Override
 	public void update(float delta) {
 		cooldown += delta;
+		totaltime += delta;
 		if (cooldown > CD_Timer)
 		{
 			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
@@ -36,7 +38,7 @@ public class RandomTimeline implements StageTimeline {
 
 	@Override
 	public boolean testWin() {
-		return totaltime > 40;
+		return totaltime > 20;
 	}
 	
 	public void setSpeed(float s)

@@ -3,11 +3,13 @@ package org.castelodelego.ludum28.screens;
 import java.util.Iterator;
 
 import org.castelodelego.ludum28.Globals;
+import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -21,7 +23,7 @@ public class GameScreen implements Screen {
 	
 	Array<Flyer> friends;
 	Array<Flyer> enemies;
-	Flyer player;
+	Player player;
 	
 	StageTimeline timeline;
 	
@@ -45,6 +47,9 @@ public class GameScreen implements Screen {
 		timeline = t;
 		timeline.reset(difficulty);
 		
+		friends.clear();
+		enemies.clear();
+
 		Gdx.input.setInputProcessor(Globals.getGameController());
 	}
 			
@@ -113,13 +118,22 @@ public class GameScreen implements Screen {
 		
 		// UPDATING THE TIMELINE
 		
-		if (timeline != null)
-			timeline.update(delta);
+		timeline.update(delta);
 		
-		if (timeline.testWin())
+		if (!player.isAlive())
 		{
-			// TODO: The player has won the stage
+			Globals.playerDies(player.getMode());
+			if (Globals.gameover)
+				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameOverScreen);
+			else	
+				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
+			
+		} else if (timeline.testWin())
+		{
+			Globals.playerWins();
+			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 		}
+			
 	}
 	
 	void debugRender()

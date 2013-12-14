@@ -87,7 +87,9 @@ public class Globals {
 		
 		score = 0;
 		gameover = false;
+		
 		currentdifficulty = 0;
+		currentlevel = 0;
 		
 	}
 	
@@ -101,9 +103,13 @@ public class Globals {
 		}
 	}
 	
+	/**
+	 * Call this function when the player has defeated 1 stage
+	 */
 	public static void playerWins()
 	{
-		// TODO: increase the difficulty, switch timelines
+		currentdifficulty += 1;
+		currentlevel = (currentlevel+1)%levels.size;
 	}
 	
 	/**
@@ -116,6 +122,8 @@ public class Globals {
 
 	/** Global Getters **/
 	public static InputProcessor getGameController() {
+		if (keyboard)
+			((KeyboardGameController) gamecontroller).reset();
 		return gamecontroller;
 	}
 

@@ -9,7 +9,6 @@ import com.badlogic.gdx.math.Vector2;
 
 public class KeyboardGameController implements InputProcessor {
 
-	boolean keyboard = false;
 	Vector2 dir = new Vector2(0,0);
 	
 	boolean up = false;
@@ -18,10 +17,15 @@ public class KeyboardGameController implements InputProcessor {
 	boolean right = false;
 	
 	
-	public void setKeyb(boolean kb)
+	public void reset()
 	{
-		keyboard = kb;
+		up = false;
+		down = false;
+		left = false;
+		right = false;
+		dir.set(0,0);
 	}
+	
 	
 	public Vector2 composeDir()
 	{

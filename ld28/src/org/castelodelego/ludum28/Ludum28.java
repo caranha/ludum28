@@ -1,5 +1,6 @@
 package org.castelodelego.ludum28;
 
+import org.castelodelego.ludum28.screens.GameOverScreen;
 import org.castelodelego.ludum28.screens.GameScreen;
 import org.castelodelego.ludum28.screens.MainScreen;
 import org.castelodelego.ludum28.screens.SelectionScreen;
@@ -37,6 +38,7 @@ public class Ludum28 extends Game {
 		mainScreen = new MainScreen();
 		gameScreen = new GameScreen();
 		selectionScreen = new SelectionScreen();
+		gameOverScreen = new GameOverScreen();
 		
 		setScreen(splashScreen);
 		

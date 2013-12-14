@@ -56,8 +56,16 @@ public class SelectionScreen implements Screen {
 		
 		Globals.batch.begin();
 		Globals.debugtext.setColor(Color.YELLOW);
-		Globals.debugtext.draw(Globals.batch, "Mode Selected: "+selectedPlayerMode,100, Constants.SCREEN_H-80);
+		
 		Globals.debugtext.draw(Globals.batch, "Difficulty Selected: "+selectedDifficulty, 100, Constants.SCREEN_H-40);		
+		Globals.debugtext.draw(Globals.batch, "Mode Selected: "+(selectedPlayerMode+1),100, Constants.SCREEN_H-80);
+		
+		String modes = "Modes Available:";
+		for (int i = 0; i < 4; i++)
+			if (Globals.modes[i])
+				modes += " "+(i+1);		
+		Globals.debugtext.draw(Globals.batch, modes, 130, Constants.SCREEN_H-100);
+		
 		Globals.batch.end();
 
 	}

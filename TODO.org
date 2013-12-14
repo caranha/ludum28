@@ -16,13 +16,13 @@
 
 - [X] Add Two upgrades (multiple shot, speed)
 - [X] Add Upgrade selection screen
-- [ ] Add Game Over Conditions
+- [X] Add Game Over Conditions
 
 - [ ] Add Scoring
 - [ ] Add Max Score
 
-- [ ] Add "Enemy AI" (linked function that controls enemy movement)
-- [ ] Add "Death Function" (linked functions that control when an enemy dies)
+- [X] Add "Enemy AI" (linked function that controls enemy movement)
+- [X] Add "Death Function" (linked functions that control when an enemy dies)
 
 - [ ] Add Parallax Background
 - [ ] Add Sprites for player and enemies
