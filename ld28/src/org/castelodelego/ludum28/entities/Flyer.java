@@ -1,5 +1,6 @@
 package org.castelodelego.ludum28.entities;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -18,22 +19,22 @@ public class Flyer {
 	Vector2 position; // current position
 	Vector2 direction; // which way the flyer wants to go (relative to the flyer)
 	
-	float speed; // speed in cm/second
+	float speed = 100; // speed in cm/second
 	Vector2 hitbox; // the X and Y size of the hitbox for this Flyer
 	
 	boolean remove; // This flyer is no longer used and can be removed
-	Shooter gun;
+	int hitpoints = 1; // the number of hitpoints that this flyer has
 	
+	Shooter gun; // The function used to create shots
 	
 	// Team indicates if this flyer is a player or an enemy
 	public static final int T_PLAYER = 0;
 	public static final int T_ENEMY = 1;
 	int team; 
 	
-	public Flyer(Vector2 pos, float spd, Vector2 htb)
+	public Flyer(Vector2 pos, Vector2 htb)
 	{
 		position = pos;
-		speed = spd;
 		direction = new Vector2(0,0);
 		hitbox = htb;
 		remove = false;
@@ -55,6 +56,9 @@ public class Flyer {
 		{
 			gun.Shoot(position, direction, team, delta);
 		}
+		
+		if (hitpoints <= 0)
+			setRemove(true);
 		
 	}
 
@@ -82,7 +86,8 @@ public class Flyer {
 	 */
 	public void doCollision(Flyer f)
 	{
-		remove = true;
+		Gdx.app.log("Collision", "My hitpoints: "+hitpoints);
+		hitpoints -= 1;
 	}
 	
 	/**
@@ -110,6 +115,20 @@ public class Flyer {
 	// SETTERS
 	
 	/**
+	 * Does not copy the vector pos
+	 * @param dir
+	 */
+	public void setPosition(Vector2 pos)
+	{
+		position.set(pos);
+	}
+	
+	public void setSpeed(float s)
+	{
+		speed = s;
+	}
+
+	/**
 	 * Does not copy the vector dir
 	 * @param dir
 	 */
@@ -123,15 +142,6 @@ public class Flyer {
 		direction.set(target.x - position.x, target.y - position.y);
 	}
 	
-	/**
-	 * Does not copy the vector pos
-	 * @param dir
-	 */
-	public void setPosition(Vector2 pos)
-	{
-		position.set(pos);
-	}
-	
 	public void setTeam(int t)
 	{
 		team = t;
@@ -140,6 +150,11 @@ public class Flyer {
 	public void setGun(Shooter g)
 	{
 		gun = g;
+	}
+	
+	public void setRemove(Boolean b)
+	{
+		remove = b;
 	}
 	
 	// GETTERS
@@ -152,6 +167,11 @@ public class Flyer {
 	public Vector2 getPosition()
 	{
 		return position;
+	}
+	
+	public Vector2 getHitbox()
+	{
+		return hitbox;
 	}
 	
 	/**

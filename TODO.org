@@ -1,25 +1,32 @@
 * Dinosaur RUSH
 
 - [X] Mouse Controls
-- [ ] Flyers Can shoot shots
-- [ ] Shots die when off the screen
-- [ ] Add enemies
-- [ ] Add random generation of enemies
-- [ ] Collision between player shots and enemies
-- [ ] Add Total number of enemies on screen
+- [X] Flyers Can shoot shots
+- [X] Shots die when off the screen
+- [X] Add enemies
+- [X] Add random generation of enemies
+- [X] Collision between player shots and enemies
 - [ ] Add keyboard controls
 - [ ] Menu screen selects between keyboard controls and mouse controls
 - [ ] Add roar
 
 
 
+- [ ] Add "Enemy AI" (linked function that controls enemy movement)
+- [ ] Add "Death Function" (linked functions that control when an enemy dies)
+
+* Enemies
+- [ ] Random moving Enemy
+- [ ] Non-moving Enemy
+- [ ] Enemy that Zooms in on Player
+- [ ] Enemy that stays in the back, shooting at the player
+- [ ] Enemy that tries to stay away from the player
+- [ ] Strong enemy that fill the screen with shots
+- [ ] Boss with a shot that covers most of the screen
 
 * Entity Class structure
 - Flyer
 - Hero
-
-
-
 
 * Scenes
   - [ ] Gameplay Scene

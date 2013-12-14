@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class PeaShooter implements Shooter {
 
-	static float CDTIMER = 0.5f;
+	float CDTIMER = 0.5f;
 	float cooldown = 0;
 	
 	@Override
@@ -25,7 +25,8 @@ public class PeaShooter implements Shooter {
 			else
 				d = new Vector2(-1,0);
 			
-			Flyer pew = new Flyer(pos.cpy(),500,new Vector2(10,2));
+			Flyer pew = new Laser(pos.cpy(),new Vector2(10,2));
+			pew.setSpeed(500);
 			pew.setDirection(d);
 			pew.setTeam(team);
 			
@@ -36,4 +37,9 @@ public class PeaShooter implements Shooter {
 		}		
 	}
 
+	public void setCoolDown(float time)
+	{
+		CDTIMER = time;
+	}
+	
 }

@@ -1,8 +1,14 @@
 package org.castelodelego.ludum28.screens;
 
+import java.util.Iterator;
+
 import org.castelodelego.ludum28.Globals;
+import org.castelodelego.ludum28.entities.BasicEnemy;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.entities.PeaShooter;
+import org.castelodelego.ludum28.entities.Shooter;
+import org.castelodelego.ludum28.gamemodel.RandomTimeline;
+import org.castelodelego.ludum28.gamemodel.StageTimeline;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -21,6 +27,9 @@ public class GameScreen implements Screen {
 	Array<Flyer> enemies;
 	Flyer player;
 	
+	StageTimeline timeline;
+	
+	
 	public GameScreen()
 	{
 		linedrawer = new ShapeRenderer();
@@ -30,14 +39,31 @@ public class GameScreen implements Screen {
 		enemies = new Array<Flyer>();		
 	}
 
+	public void reset()
+	{
+		timeline.reset();
+	}
+	
+	public void setTimeline(StageTimeline t)
+	{
+		timeline = t;
+	}
+	
 	/** 
 	 * Debug function that sets a test player
 	 */
 	void setTestPlayer()
 	{
-		player = new Flyer(new Vector2(20,20), 200, new Vector2(10,10)); // FIXME: debug
-		player.setGun(new PeaShooter());
+		player = new Flyer(new Vector2(20,20), new Vector2(10,10)); // FIXME: debug
+		player.setSpeed(200);
+		Shooter pew = new PeaShooter();
+		pew.setCoolDown(0.2f);		
+		player.setGun(pew);
 		
+		addFlyer(new BasicEnemy(new Vector2(600,200),new Vector2(20,20)));
+		RandomTimeline t = new RandomTimeline();
+		t.setSpeed(0.2f);
+		timeline = t;
 	}
 	
 	
@@ -66,14 +92,61 @@ public class GameScreen implements Screen {
 
 	void tickGame(float delta)
 	{
+		Iterator<Flyer> it;
+		Flyer aux;
+		
 		player.update(delta);
-		for (Flyer aux: friends)
+		
+		// UPDATING FLYERS -- ALLIES AND ENEMIES
+		it = friends.iterator();
+		while (it.hasNext())
 		{
-			aux.update(delta);
+			aux = it.next();
+			if (aux.getRemove())
+				it.remove();
+			else
+				aux.update(delta);
 		}
-		for (Flyer aux: enemies)
+		
+		it = enemies.iterator();
+		while (it.hasNext())
 		{
-			aux.update(delta);
+			aux = it.next();
+			if (aux.getRemove())
+				it.remove();
+			else
+				aux.update(delta);
+		}
+		
+		// TESTING COLLISIONS - Allies against all enemies, enemies against the player
+		// TODO: Optimize this
+		
+		for (Flyer col1: enemies)
+		{
+			for (Flyer col2: friends)
+			{
+				if (col1.testCollision(col2.getPosition(), col2.getHitbox()))
+				{
+					col1.doCollision(col2);
+					col2.doCollision(col1);
+				}
+			}
+			
+			if (col1.testCollision(player.getPosition(), player.getHitbox()))
+			{
+				player.doCollision(col1);
+			}
+			
+		}
+		
+		
+		
+		if (timeline != null)
+			timeline.update(delta);
+		
+		if (timeline.testWin())
+		{
+			// TODO: The player has won the stage
 		}
 	}
 	
