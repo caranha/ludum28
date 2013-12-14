@@ -30,6 +30,7 @@ public class RandomTimeline implements StageTimeline {
 			
 			BasicEnemy mook = new BasicEnemy(pos, new Vector2(10,10));
 			mook.goUp(Globals.dice.nextBoolean());
+			mook.setScore(3);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(mook);
 			cooldown -= CD_Timer;

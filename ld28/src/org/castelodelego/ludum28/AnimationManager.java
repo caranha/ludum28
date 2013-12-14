@@ -39,7 +39,7 @@ public class AnimationManager extends HashMap<String,Animation>{
 		for(int i = 0; i < a.size; i++)
 			if (a.get(i).index == 1)
 			{
-				time = 0.05f;
+				time = 0.3f;
 				loop = Animation.LOOP;
 				
 				this.put(a.get(i).name, new Animation(time,pack.createSprites(a.get(i).name),loop));

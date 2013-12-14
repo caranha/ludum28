@@ -7,8 +7,8 @@ import org.castelodelego.ludum28.gamemodel.StageTimeline;
 import org.castelodelego.ludum28.input.KeyboardGameController;
 import org.castelodelego.ludum28.input.MouseGameController;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -26,8 +26,6 @@ import com.badlogic.gdx.utils.Array;
 public class Globals {
 		
 	
-	
-	public static Preferences scoreloader;
 	public static int maxscore;
 		
 	public static AssetManager manager;
@@ -69,6 +67,7 @@ public class Globals {
 		
 		levels = new Array<StageTimeline>();
 		levels.add(new RandomTimeline());
+		maxscore = Gdx.app.getPreferences("DinoRush").getInteger("Maxscore", 0);
 	}
 	
 	/** 
@@ -117,7 +116,12 @@ public class Globals {
 	 */
 	public static void endGame()
 	{
-		
+		if (score > maxscore)
+		{
+			maxscore = score;
+			Gdx.app.getPreferences("DinoRush").putInteger("Maxscore", maxscore);
+			Gdx.app.getPreferences("DinoRush").flush();
+		}
 	}
 
 	/** Global Getters **/

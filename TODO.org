@@ -18,21 +18,22 @@
 - [X] Add Upgrade selection screen
 - [X] Add Game Over Conditions
 
-- [ ] Add Scoring
-- [ ] Add Max Score
+- [X] Add Scoring
+- [X] Add Max Score
 
 - [X] Add "Enemy AI" (linked function that controls enemy movement)
 - [X] Add "Death Function" (linked functions that control when an enemy dies)
 
+- [X] Add Sprites for player
+- [ ] Add Sprites for enemies
 - [ ] Add Parallax Background
-- [ ] Add Sprites for player and enemies
 
-- [ ] Add Screen Limits for the player
+- [X] Add Screen Limits for the player
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option
 
 * Enemies
-- [ ] Random moving Enemy
+- [X] Random moving Enemy
 - [ ] Non-moving Enemy
 - [ ] Enemy that Zooms in on Player
 - [ ] Enemy that stays in the back, shooting at the player
@@ -41,9 +42,9 @@
 - [ ] Boss with a shot that covers most of the screen
 
 * Boosts
-  - [ ] Wide Shooter (Shoots five lasers in an arc)
+  - [X] Wide Shooter (Shoots five lasers in an arc)
   - [ ] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
   - [ ] Shield (Can take three attacks before dying. Regenerates)
-  - [ ] Speed Boost (Faster)
+  - [X] Speed Boost (Faster)
   - [ ] Bomb (Every so many seconds, roar also causes a bomb)
  

@@ -30,6 +30,7 @@ public abstract class Flyer {
 	public static final int T_PLAYER = 0;
 	public static final int T_ENEMY = 1;
 	int team; 
+	int scorevalue = 0;
 	
 	public Flyer(Vector2 pos, Vector2 htb)
 	{
@@ -144,6 +145,11 @@ public abstract class Flyer {
 		remove = b;
 	}
 	
+	public void setScore(int s)
+	{
+		scorevalue = s;
+	}
+	
 	// GETTERS
 	
 	public Vector2 getDirection()
@@ -173,5 +179,10 @@ public abstract class Flyer {
 	public int getTeam()
 	{
 		return team;
+	}
+	
+	public int getScore()
+	{
+		return scorevalue;
 	}
 }

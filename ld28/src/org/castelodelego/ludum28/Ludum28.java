@@ -12,6 +12,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class Ludum28 extends Game {
 
@@ -50,7 +51,7 @@ public class Ludum28 extends Game {
 	 */
 	private void queueAssets()
 	{
-		//		Globals.manager.load("images-packed/pack.atlas", TextureAtlas.class); // packed images
+		Globals.manager.load("sprites/pack.atlas", TextureAtlas.class); // packed images
 		
 		// adding sound
 		Globals.manager.load("sfx/pew.ogg", Sound.class);
@@ -73,6 +74,8 @@ public class Ludum28 extends Game {
 		Globals.batch.begin();
 		Globals.debugtext.setColor(Color.YELLOW);
 		Globals.debugtext.draw(Globals.batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, Constants.SCREEN_H);		
+		Globals.debugtext.draw(Globals.batch, "Score: "+Globals.score, Constants.SCREEN_W-100, Constants.SCREEN_H);
+		Globals.debugtext.draw(Globals.batch, "MaxScore: "+Globals.maxscore, Constants.SCREEN_W-100, Constants.SCREEN_H-20);
 		Globals.batch.end();
 	}
 

@@ -64,7 +64,7 @@ public class GameScreen implements Screen {
 		
 		/*** Rendering the Game ***/
 		debugRender();
-		roartimer -=delta;//debug
+		spriteRender();
 	}
 
 	void tickGame(float delta)
@@ -90,7 +90,10 @@ public class GameScreen implements Screen {
 		{
 			aux = it.next();
 			if (aux.getRemove())
+			{
+				Globals.score += aux.getScore();
 				it.remove();
+			}
 			else
 				aux.update(delta);
 		}
@@ -124,7 +127,10 @@ public class GameScreen implements Screen {
 		{
 			Globals.playerDies(player.getMode());
 			if (Globals.gameover)
+			{
+				Globals.endGame();
 				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameOverScreen);
+			}
 			else	
 				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 			
@@ -151,6 +157,20 @@ public class GameScreen implements Screen {
 		linedrawer.end();		
 	}
 	
+	void spriteRender()
+	{
+		Globals.batch.begin();
+		player.renderSprite();
+		for (Flyer aux:friends)
+		{
+			aux.renderSprite();
+		}
+		for (Flyer aux:enemies)
+		{
+			aux.renderSprite();
+		}
+		Globals.batch.end();
+	}
 	
 	public void setPlayerDirection(Vector2 direction)
 	{

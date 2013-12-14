@@ -10,6 +10,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
@@ -58,11 +59,11 @@ public class SplashScreen implements Screen {
 		//	loadprogress = GdxGameMain.manager.getProgress(); // 0-1 loading progress, if I need a loading bar
 		
 		// load animations
-//		if (loaddone == true && loadAnimDone == false)
-//		{	
-//			loadAnimDone = (Globals.animman.loadAnimations(Globals.manager.get("images-packed/pack.atlas", TextureAtlas.class),delta));
-//		}
-		loadAnimDone = true;
+		if (loaddone == true && loadAnimDone == false)
+		{	
+			loadAnimDone = (Globals.animman.loadAnimations(Globals.manager.get("sprites/pack.atlas", TextureAtlas.class),delta));
+		}
+		// loadAnimDone = true;
 		
 		// splash screen fade crontrol
 		time = time+delta;		
@@ -77,7 +78,7 @@ public class SplashScreen implements Screen {
 		
 		Globals.batch.setProjectionMatrix(camera.combined);
 		Globals.batch.begin();
-		Globals.batch.draw(splashimg, 0,0); // TODO: Fix this, splash image off center
+		Globals.batch.draw(splashimg, 0,Constants.SCREEN_H-splashimg.getHeight());
 		Globals.batch.end();
 		
 		

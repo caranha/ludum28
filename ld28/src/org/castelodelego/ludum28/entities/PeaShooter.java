@@ -33,7 +33,7 @@ public class PeaShooter implements Shooter {
 			pew.setTeam(team);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			(Globals.manager.get("sfx/pew.ogg", Sound.class)).play(0.1f);
+			(Globals.manager.get("sfx/pew.ogg", Sound.class)).play(0.25f);
 			
 			cooldown -= CDTIMER;
 		}		
