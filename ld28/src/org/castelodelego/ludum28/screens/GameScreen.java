@@ -5,14 +5,12 @@ import java.util.Iterator;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.entities.BasicEnemy;
 import org.castelodelego.ludum28.entities.Flyer;
-import org.castelodelego.ludum28.entities.PeaShooter;
-import org.castelodelego.ludum28.entities.Shooter;
+import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -59,11 +57,7 @@ public class GameScreen implements Screen {
 	 */
 	void setTestPlayer()
 	{
-		player = new Flyer(new Vector2(20,20), new Vector2(10,10)); 
-		player.setSpeed(200);
-		Shooter pew = new PeaShooter();
-		pew.setCoolDown(0.2f);		
-		player.setGun(pew);
+		player = new Player(new Vector2(20,20), Player.MODE_WIDE); 
 		
 		addFlyer(new BasicEnemy(new Vector2(600,200),new Vector2(20,20)));
 		RandomTimeline t = new RandomTimeline();
@@ -175,14 +169,7 @@ public class GameScreen implements Screen {
 	}
 	public void doPlayerRoar()
 	{
-		if (roartimer <= 0)
-		{
-			(Globals.manager.get("sfx/roar.ogg", Sound.class)).play();
-			roartimer=4;
-		}
-			
-			
-		Gdx.app.log("ROAAAAAAR", "ROOOOOAAAAAAAAARRRRR");
+		((Player) player).doRoar();
 	}
 	
 	

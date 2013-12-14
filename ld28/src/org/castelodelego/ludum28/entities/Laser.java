@@ -10,42 +10,45 @@ import org.castelodelego.ludum28.Constants;
  */
 public class Laser extends Flyer {
 
-	int damage = 1;
-	
 	public Laser(Vector2 pos, Vector2 htb) {
 		super(pos, htb);
 		speed = 300;
 	}
 	
-	public void update(float delta)
-	{
-		super.update(delta);
-		
-		// Tests if the shot is outside the screen, and set it for removal if it is
-		if	((position.x-hitbox.x > Constants.SCREEN_W ||
-				position.y-hitbox.y > Constants.SCREEN_H ||
-				position.x+hitbox.x < 0 ||
-				position.y+hitbox.y < 0))
-			setRemove(true);
-	}
 
-	public void setDamage(int d)
-	{
-		damage = d;
-	}
-	
-	public int getDamage()
-	{
-		return damage;
-	}
-	
 	/**
 	 * Lasers do not collide with other Lasers
 	 */
 	@Override
 	public void doCollision(Flyer f)
 	{
+		// Does not interact with other lasers
 		if (!(f instanceof Laser))
-			remove = true;
+			hitpoints -= 1;
+	}
+
+	@Override
+	boolean testRemoval() {
+		if (hitpoints <= 0)
+			return true;
+		
+		if ((position.x-hitbox.x > Constants.SCREEN_W ||
+				position.y-hitbox.y > Constants.SCREEN_H ||
+				position.x+hitbox.x < 0 ||
+				position.y+hitbox.y < 0))
+			return true;
+		
+		return false;
+	}
+
+	@Override
+	void artificialIntelligence(float delta) {
+		// Simple lasers just go straight ahead
+	}
+
+	@Override
+	public void renderSprite() {
+		// TODO Auto-generated method stub
+		
 	}
 }

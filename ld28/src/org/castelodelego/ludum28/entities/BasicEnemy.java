@@ -23,21 +23,6 @@ public class BasicEnemy extends Flyer
 		setSpeed(100);
 	}
 	
-	public void update(float delta)
-	{
-		super.update(delta);
-		
-		ydir += ydelta;
-		if (ydir > maxY)
-			ydelta = ydelta*-1;
-		if (ydir < maxY*-1)
-			ydelta = ydelta*-1;		
-		setDirection(new Vector2(xdir,ydir));
-
-		// Enemy is removed if he crosses the left border
-		if (position.x+hitbox.x < 0)
-			setRemove(true);
-	}
 	
 	public void goUp(boolean t)
 	{
@@ -49,5 +34,37 @@ public class BasicEnemy extends Flyer
 		{
 			ydelta = -1;
 		}
+	}
+
+	@Override
+	boolean testRemoval() {
+		// Enemy left the screen to the left side
+		if (position.x+hitbox.x < 0)
+			return true;
+		if (hitpoints <= 0)
+			return true;
+		
+		return false;
+	}
+
+	@Override
+	void artificialIntelligence(float delta) {
+		ydir += ydelta;
+		if (ydir > maxY)
+			ydelta = ydelta*-1;
+		if (ydir < maxY*-1)
+			ydelta = ydelta*-1;		
+		setDirection(new Vector2(xdir,ydir));
+	}
+
+	@Override
+	public void doCollision(Flyer f) {
+		hitpoints -= 1;		
+	}
+
+	@Override
+	public void renderSprite() {
+		// TODO Auto-generated method stub
+		
 	}
 }

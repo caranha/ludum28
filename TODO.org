@@ -10,12 +10,13 @@
 - [X] Add keyboard controls
 - [X] Menu screen selects between keyboard controls and mouse controls
 
-- [ ] Add roar
-- [ ] Add pew pew (small)
+- [X] Add roar
+- [X] Add pew pew (small)
+- [X] Player now Dies
 
 - [ ] Add Two upgrades (Big shot and multiple shot)
 - [ ] Add Upgrade selection screen
-- [ ] Add Dying
+- [ ] Add Game Over Conditions
 
 - [ ] Add Scoring
 - [ ] Add Max Score
@@ -25,6 +26,8 @@
 
 - [ ] Add Parallax Background
 - [ ] Add Sprites for player and enemies
+
+- [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 
 * Enemies
 - [ ] Random moving Enemy
@@ -37,8 +40,7 @@
 
 * Boosts
   - [ ] Wide Shooter (Shoots five lasers in an arc)
-  - [ ] Thick Shooter (Shoots a big laser that causes more 
-    damage and goes through everything)
+  - [ ] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
   - [ ] Shield (Can take three attacks before dying. Regenerates)
   - [ ] Speed Boost (Faster)
   - [ ] Bomb (Every so many seconds, roar also causes a bomb)

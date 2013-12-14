@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.Vector2;
  * @author caranha
  *
  */
-public class Flyer {
+public abstract class Flyer {
 
 	Vector2 position; // current position
 	Vector2 direction; // which way the flyer wants to go (relative to the flyer)
@@ -56,11 +56,15 @@ public class Flyer {
 			gun.Shoot(position, direction, team, delta);
 		}
 		
-		if (hitpoints <= 0)
-			setRemove(true);
-		
+		artificialIntelligence(delta);
+		setRemove(testRemoval());
 	}
 
+	abstract boolean testRemoval();
+	abstract void artificialIntelligence(float delta);
+	abstract public void doCollision(Flyer f);
+	abstract public void renderSprite();
+	
 	/**
 	 * Tests if this flier collides with a hitbox
 	 * @param pos Position of the hitbox (lower left)
@@ -79,14 +83,6 @@ public class Flyer {
 		return true;
 	}
 	
-	/**
-	 * Is called when this flyer is hit by a projectile. The projectile that did the collision is passed as a parameter (for damage calculation, etc)
-	 * @param value
-	 */
-	public void doCollision(Flyer f)
-	{
-		hitpoints -= 1;
-	}
 	
 	/**
 	 * Render debug information for this Flyer
@@ -101,13 +97,6 @@ public class Flyer {
 		linedrawer.line(position.x, position.y, position.x+direction.x, position.y+direction.y);
 	}
 	
-	/** 
-	 * Renders the sprite for this Flyer
-	 */
-	public void renderSprite()
-	{
-		
-	}
 	
 	
 	// SETTERS
