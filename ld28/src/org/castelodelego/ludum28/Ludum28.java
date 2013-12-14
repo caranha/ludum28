@@ -1,5 +1,9 @@
 package org.castelodelego.ludum28;
 
+import org.castelodelego.ludum28.screens.GameScreen;
+import org.castelodelego.ludum28.screens.MainScreen;
+import org.castelodelego.ludum28.screens.SplashScreen;
+
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
@@ -8,8 +12,9 @@ import com.badlogic.gdx.graphics.Color;
 
 public class Ludum28 extends Game {
 
-	static Screen splashScreen;
-	static Screen mainScreen;
+	public static Screen splashScreen;
+	public static Screen mainScreen;
+	public static Screen gameScreen;
 
 	
 	@Override
@@ -24,6 +29,7 @@ public class Ludum28 extends Game {
 		
 		splashScreen = new SplashScreen();
 		mainScreen = new MainScreen();
+		gameScreen = new GameScreen();
 		
 		setScreen(splashScreen);
 		

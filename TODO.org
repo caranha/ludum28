@@ -1,0 +1,45 @@
+* Dinosaur RUSH
+
+- [X] Mouse Controls
+- [ ] Flyers Can shoot shots
+- [ ] Shots die when off the screen
+- [ ] Add enemies
+- [ ] Add random generation of enemies
+- [ ] Collision between player shots and enemies
+- [ ] Add Total number of enemies on screen
+- [ ] Add keyboard controls
+- [ ] Menu screen selects between keyboard controls and mouse controls
+- [ ] Add roar
+
+
+
+
+* Entity Class structure
+- Flyer
+- Hero
+
+
+
+
+* Scenes
+  - [ ] Gameplay Scene
+  - [ ] Main Menu Scene
+  - [ ] Boost Selection Scene
+  - [ ] About Scene
+  - [ ] Game Over Scene (Game over after all boosts are lost)
+
+* Gameplay
+  - You move your Dino around the screen
+  - Shooting is done automatically
+  - If you die, you lose the option to select that bonus
+  - Levels are generated randomly (How to do this well?)
+    - Maybe there is a level hint?
+
+* Boosts
+  - [ ] Wide Shooter (Shoots five lasers in an arc)
+  - [ ] Thick Shooter (Shoots a big laser that causes more 
+    damage and goes through everything)
+  - [ ] Shield (Can take three attacks before dying. Regenerates)
+  - [ ] Speed Boost (Faster)
+  - [ ] Bomb (Every so many seconds, roar also causes a bomb)
+ 

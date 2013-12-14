@@ -1,4 +1,4 @@
-package org.castelodelego.ludum28;
+package org.castelodelego.ludum28.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -6,6 +6,12 @@ import com.badlogic.gdx.graphics.GL20;
 
 public class MainScreen implements Screen {
 
+	public MainScreen()
+	{
+		
+	}
+	
+	
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 0, 0, 0);
