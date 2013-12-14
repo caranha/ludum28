@@ -8,6 +8,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 
 public class Ludum28 extends Game {
@@ -42,6 +43,10 @@ public class Ludum28 extends Game {
 	private void queueAssets()
 	{
 		//		Globals.manager.load("images-packed/pack.atlas", TextureAtlas.class); // packed images
+		
+		// adding sound
+		Globals.manager.load("sfx/pew.ogg", Sound.class);
+		Globals.manager.load("sfx/roar.ogg", Sound.class);
 	}
 	
 	@Override

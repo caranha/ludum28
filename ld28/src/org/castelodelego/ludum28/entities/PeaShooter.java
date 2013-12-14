@@ -1,8 +1,10 @@
 package org.castelodelego.ludum28.entities;
 
+import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.screens.GameScreen;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector2;
 
 /**
@@ -31,7 +33,7 @@ public class PeaShooter implements Shooter {
 			pew.setTeam(team);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			
+			(Globals.manager.get("sfx/pew.ogg", Sound.class)).play(0.1f);
 			
 			cooldown -= CDTIMER;
 		}		

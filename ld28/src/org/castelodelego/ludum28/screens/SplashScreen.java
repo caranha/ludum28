@@ -30,8 +30,7 @@ public class SplashScreen implements Screen {
 	public SplashScreen()
 	{
 		loaddone = false;
-//		loadAnimDone = false;
-		loadAnimDone = true;
+		loadAnimDone = false;
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Constants.SCREEN_W, Constants.SCREEN_H);
@@ -63,6 +62,7 @@ public class SplashScreen implements Screen {
 //		{	
 //			loadAnimDone = (Globals.animman.loadAnimations(Globals.manager.get("images-packed/pack.atlas", TextureAtlas.class),delta));
 //		}
+		loadAnimDone = true;
 		
 		// splash screen fade crontrol
 		time = time+delta;		

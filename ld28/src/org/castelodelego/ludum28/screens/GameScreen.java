@@ -9,17 +9,14 @@ import org.castelodelego.ludum28.entities.PeaShooter;
 import org.castelodelego.ludum28.entities.Shooter;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
-import org.castelodelego.ludum28.input.KeyboardGameController;
-import org.castelodelego.ludum28.input.MouseGameController;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 
 public class GameScreen implements Screen {
@@ -32,6 +29,8 @@ public class GameScreen implements Screen {
 	
 	StageTimeline timeline;
 	
+	
+	int roartimer = 0; // TODO: Move this to the Player Class;
 	
 	public GameScreen()
 	{
@@ -56,10 +55,11 @@ public class GameScreen implements Screen {
 	
 	/** 
 	 * Debug function that sets a test player
+	 * FIXME: Debug Function
 	 */
 	void setTestPlayer()
 	{
-		player = new Flyer(new Vector2(20,20), new Vector2(10,10)); // FIXME: debug
+		player = new Flyer(new Vector2(20,20), new Vector2(10,10)); 
 		player.setSpeed(200);
 		Shooter pew = new PeaShooter();
 		pew.setCoolDown(0.2f);		
@@ -85,6 +85,7 @@ public class GameScreen implements Screen {
 		
 		/*** Rendering the Game ***/
 		debugRender();
+		roartimer -=delta;//debug
 	}
 
 	void tickGame(float delta)
@@ -174,6 +175,13 @@ public class GameScreen implements Screen {
 	}
 	public void doPlayerRoar()
 	{
+		if (roartimer <= 0)
+		{
+			(Globals.manager.get("sfx/roar.ogg", Sound.class)).play();
+			roartimer=4;
+		}
+			
+			
 		Gdx.app.log("ROAAAAAAR", "ROOOOOAAAAAAAAARRRRR");
 	}
 	

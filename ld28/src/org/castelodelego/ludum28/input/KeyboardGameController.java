@@ -104,7 +104,7 @@ public class KeyboardGameController implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		if (character == Input.Keys.SPACE)
+		if (character == ' ')
 		{
 			((GameScreen) Ludum28.gameScreen).doPlayerRoar();
 			return true;
