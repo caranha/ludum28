@@ -10,37 +10,35 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * The basic enemy just moves up and down, randomly.
+ * 
+ * The dirigible enemy will try to move towards the player. Slowly.
+ * 
  * @author caranha
  *
  */
-public class TankEnemy extends Flyer 
+public class DirigibleEnemy extends Flyer 
 {
 	// Default Variables
-	static final Sound death_default = Globals.manager.get("sfx/explosion1.ogg", Sound.class);
-	static final Animation anim_default = Globals.animman.get("Tank");
-	static final Animation deathanim_default = Globals.animman.get("TankTrash");
+	static final Sound death_default = Globals.manager.get("sfx/falling.ogg", Sound.class);
+	static final Animation anim_default = Globals.animman.get("Dirigible");
+	static final Animation deathanim_default = Globals.animman.get("DirigibleDeath");
 	
 	/* Behavior variables */
-	private float switchtimer = 3;
-	private float timer = 0;
-	private boolean stop = false;
+	private float yspeed = 0.2f;
 	
 	float shaketimer;
 	Sound death = death_default;
 	
-	public TankEnemy(Vector2 pos) 
+	public DirigibleEnemy(Vector2 pos) 
 	{
-		super(pos, new Vector2(80,40));
+		super(pos, new Vector2(80,30));
 		setTeam(Flyer.T_ENEMY);
 		setSpeed(100);
 		offsetx = 2;
-		offsety = 4;
-		
-		shootoffsetx = 25;
-		shootoffsety = 15;
+		offsety = 8;
 		
 		setAnim(anim_default);
+		setDirection(new Vector2(-1,0));
 	}	
 	
 	@Override
@@ -64,7 +62,7 @@ public class TankEnemy extends Flyer
 			death.play(0.7f);
 			Prop explosion = new Prop(position, 15, false);
 			explosion.setAnim(deathanim_default);
-			explosion.setDirection(new Vector2(-1,0));
+			explosion.setDirection(new Vector2(-1,-1.2f));
 			explosion.setSpeed(200);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(explosion);
@@ -75,25 +73,18 @@ public class TankEnemy extends Flyer
 	}
 
 	@Override
+	/**
+	 * The Dirigible tries to, slowly, move towards the player.
+	 */
 	void artificialIntelligence(float delta) {
 		shaketimer -= delta;
-		timer -= delta;
 		
-		if (timer <= 0)
-		{
-			if (stop)
-			{
-				direction.set(-1,0);
-				timer = switchtimer*(1+Globals.dice.nextFloat());
-				stop = false;
-			}
-			else
-			{
-				direction.set(0,0);
-				timer = switchtimer*(1+Globals.dice.nextFloat());
-				stop = true;
-			}
-		}
+		float py = ((GameScreen) Ludum28.gameScreen).getPlayer().getPosition().y;
+		
+		if (py > position.y)
+			direction.y = yspeed;
+		if (py < position.y)
+			direction.y = -yspeed;
 		
 	}
 
@@ -104,6 +95,11 @@ public class TankEnemy extends Flyer
 			hitpoints -= 10000;
 		else	
 			hitpoints -= 1;
+	}
+	
+	public void setYSpeed(float y)
+	{
+		yspeed = y;
 	}
 
 }

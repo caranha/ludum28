@@ -57,6 +57,9 @@
 - [ ] Add Pause Option
 - [ ] Test if Lasers aren't colliding with ships more than once
 
+- [ ] ISSUE: Logo does not appear in android
+- [ ] ISSUE: Android does ugly noises when pausing the app.
+
 * Enemies
 - [X] Random moving Enemy
 - [ ] Non-moving Enemy

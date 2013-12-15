@@ -2,6 +2,7 @@ package org.castelodelego.ludum28.gamemodel;
 
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.entities.BasicEnemy;
+import org.castelodelego.ludum28.entities.DirigibleEnemy;
 import org.castelodelego.ludum28.entities.TankEnemy;
 import org.castelodelego.ludum28.entities.shooters.Shooter;
 import org.castelodelego.ludum28.entities.shooters.TankShooter;
@@ -39,6 +40,17 @@ public class EnemyFactory {
 		Shooter gun = new TankShooter();
 		gun.setCoolDown(Math.max(1.2f - 0.02f*difficulty,0.3f));
 		mook.setGun(gun);
+		return mook;
+	}
+	
+	public static DirigibleEnemy getDirigibleEnemy(int difficulty)
+	{
+		DirigibleEnemy mook = new DirigibleEnemy(new Vector2(0,0));
+		mook.setSpeed(140+Globals.dice.nextFloat()*difficulty*4);
+		mook.setScore(2*(difficulty+1));
+		mook.setHitpoints((int) Math.min(2+difficulty*2,10));
+		Gdx.app.log("Dirigible Hitpoints", ""+mook.getHitpoints());	
+		mook.setYSpeed(0.1f+0.01f*difficulty);
 		return mook;
 	}
 	

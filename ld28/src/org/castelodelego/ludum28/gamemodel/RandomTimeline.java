@@ -40,10 +40,18 @@ public class RandomTimeline implements StageTimeline {
 		{
 			Flyer mook;
 			
-			if (Globals.dice.nextDouble() < 0.9)
+			Double result = Globals.dice.nextDouble();
+			
+			if (result < 0.65)
 			{				
 				Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
 				mook = EnemyFactory.getBasicEnemy(difficulty);
+				mook.setPosition(pos);
+			}
+			else if (result < 0.9)
+			{
+				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
+				mook = EnemyFactory.getDirigibleEnemy(difficulty);
 				mook.setPosition(pos);
 			}
 			else
