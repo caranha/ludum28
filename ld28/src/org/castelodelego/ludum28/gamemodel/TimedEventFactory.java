@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.castelodelego.ludum28.entities.Flyer;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 public class TimedEventFactory {

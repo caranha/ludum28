@@ -6,7 +6,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class Main {
 	public static void main(String[] args) {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "ld28";
+		cfg.title = "Dinosaur Rush!";
 		cfg.useGL20 = false;
 		cfg.width = Constants.SCREEN_W;
 		cfg.height = Constants.SCREEN_H;

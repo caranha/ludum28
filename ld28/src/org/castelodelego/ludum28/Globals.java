@@ -2,7 +2,6 @@ package org.castelodelego.ludum28;
 
 import java.util.Random;
 
-import org.castelodelego.ludum28.gamemodel.AsteroidTimeline;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 import org.castelodelego.ludum28.input.KeyboardGameController;
@@ -70,7 +69,7 @@ public class Globals {
 		dice = new Random();
 		
 		levels = new Array<StageTimeline>();
-		levels.add(new AsteroidTimeline());
+		//levels.add(new AsteroidTimeline());
 		levels.add(new RandomTimeline());
 		
 		

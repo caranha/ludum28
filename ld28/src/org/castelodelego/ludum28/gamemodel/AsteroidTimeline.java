@@ -7,7 +7,6 @@ import java.util.Iterator;
 import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
