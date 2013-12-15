@@ -44,13 +44,11 @@
 - [X] Add Tank Enemy
 - [X] Add Player death animation/Death timer
 - [X] Add Level Victory animation/Victory timer
+- [X] Add Homing Enemy
 
-- [ ] Add Homing Enemy
+
+
 - [ ] Add Non-moving Enemy
-
-
-
-
 - [ ] Add Transition to GAMEOVER screen
 - [ ] Add Transition to Main screen
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
@@ -59,6 +57,7 @@
 
 - [ ] ISSUE: Logo does not appear in android
 - [ ] ISSUE: Android does ugly noises when pausing the app.
+- [ ] ISSUE: Zeppelins are too fast in the Asteroid Timeline (????????)
 
 * Enemies
 - [X] Random moving Enemy

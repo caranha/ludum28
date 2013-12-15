@@ -224,6 +224,11 @@ public abstract class Flyer {
 		return hitpoints;
 	}
 	
+	public float getSpeed()
+	{
+		return speed;
+	}
+	
 	
 	
 }
