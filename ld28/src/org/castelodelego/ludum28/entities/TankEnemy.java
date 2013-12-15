@@ -24,37 +24,24 @@ public class TankEnemy extends Flyer
 	/* Behavior variables */
 	private float switchtimer = 3;
 	private float timer = 0;
+	private boolean stop = false;
 	
 	float shaketimer;
 	Sound death = death_default;
 	
 	public TankEnemy(Vector2 pos) 
 	{
-		super(pos, new Vector2(28,28));
+		super(pos, new Vector2(80,40));
 		setTeam(Flyer.T_ENEMY);
 		setSpeed(100);
 		offsetx = 2;
 		offsety = 4;
 		
+		shootoffsetx = 25;
+		shootoffsety = 15;
+		
 		setAnim(anim_default);
-	}
-	
-	public void setAmplitude(float max)
-	{
-		maxY = max;
-	}
-	
-	public void goUp(boolean t)
-	{
-		if (t)
-		{
-			ydelta = 1;
-		}
-		else
-		{
-			ydelta = -1;
-		}
-	}
+	}	
 	
 	@Override
 	public void renderSprite()
@@ -75,10 +62,10 @@ public class TankEnemy extends Flyer
 		if (hitpoints <= 0)
 		{
 			death.play(0.7f);
-			Prop explosion = new Prop(position, 1.5f, true);
+			Prop explosion = new Prop(position, 15, true);
 			explosion.setAnim(deathanim_default);
-			explosion.setDirection(direction);
-			explosion.setSpeed(speed/2);
+			explosion.setDirection(new Vector2(-1,0));
+			explosion.setSpeed(200);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(explosion);
 			return true;
@@ -90,12 +77,24 @@ public class TankEnemy extends Flyer
 	@Override
 	void artificialIntelligence(float delta) {
 		shaketimer -= delta;
-		ydir += ydelta;
-		if (ydir > maxY)
-			ydelta = ydelta*-1;
-		if (ydir < maxY*-1)
-			ydelta = ydelta*-1;		
-		setDirection(new Vector2(xdir,ydir));
+		timer -= delta;
+		
+		if (timer <= 0)
+		{
+			if (stop)
+			{
+				direction.set(-1,0);
+				timer = switchtimer*(1+Globals.dice.nextFloat());
+				stop = false;
+			}
+			else
+			{
+				direction.set(0,0);
+				timer = switchtimer*(1+Globals.dice.nextFloat());
+				stop = true;
+			}
+		}
+		
 	}
 
 	@Override

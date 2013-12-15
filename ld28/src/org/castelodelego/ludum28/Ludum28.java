@@ -30,8 +30,8 @@ public class Ludum28 extends Game {
 	@Override
 	public void create() {	
 		
-		Gdx.app.setLogLevel(Application.LOG_NONE);
-		//Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		//Gdx.app.setLogLevel(Application.LOG_NONE);
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		
 		Globals.init();
 		
@@ -62,6 +62,7 @@ public class Ludum28 extends Game {
 		Globals.manager.load("sfx/explosion1.ogg", Sound.class);
 		Globals.manager.load("sfx/badchoice.ogg", Sound.class);
 		Globals.manager.load("sfx/goodchoice.ogg", Sound.class);
+		Globals.manager.load("sfx/cannon.ogg", Sound.class);
 		
 		// adding music
 		Globals.manager.load("music/play1.ogg", Music.class);

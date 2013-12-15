@@ -24,6 +24,20 @@ BigLaser
   orig: 40, 15
   offset: 0, 0
   index: 3
+Bullet
+  rotate: false
+  xy: 156, 199
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: 1
+Bullet
+  rotate: false
+  xy: 134, 133
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: 2
 DinoMode1
   rotate: false
   xy: 2, 82
@@ -240,7 +254,14 @@ TankTrash
   size: 86, 48
   orig: 86, 48
   offset: 0, 0
-  index: -1
+  index: 1
+TankTrash
+  rotate: false
+  xy: 90, 206
+  size: 86, 48
+  orig: 86, 48
+  offset: 0, 0
+  index: 2
 
 pack2.png
 format: RGBA8888

@@ -40,9 +40,18 @@ public class RandomTimeline implements StageTimeline {
 		{
 			Flyer mook;
 			
-			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-			mook = EnemyFactory.getBasicEnemy(difficulty);
-			mook.setPosition(pos);
+			if (Globals.dice.nextDouble() < 0.9)
+			{				
+				Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
+				mook = EnemyFactory.getBasicEnemy(difficulty);
+				mook.setPosition(pos);
+			}
+			else
+			{				
+				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*100+15);
+				mook = EnemyFactory.getTankEnemy(difficulty);
+				mook.setPosition(pos);
+			}	
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(mook);
 			cooldown -= CD_Timer;
