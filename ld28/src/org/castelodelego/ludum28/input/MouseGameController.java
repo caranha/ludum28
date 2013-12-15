@@ -1,17 +1,27 @@
 package org.castelodelego.ludum28.input;
 
+import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.screens.GameScreen;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 public class MouseGameController implements GestureListener {
 
+	Vector2 unprojectCoordinates(float x, float y)
+	{
+		Vector3 rawtouch = new Vector3(x, y,0);
+		Globals.cam.unproject(rawtouch); 
+		
+		Vector2 ret = new Vector2(rawtouch.x, rawtouch.y);
+		return ret;
+	}
+	
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
 
-		((GameScreen) Ludum28.gameScreen).setPlayerTarget(new Vector2(x,Constants.SCREEN_H-y));
+		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(x,y));
 		return true;
 		
 	}

@@ -78,7 +78,7 @@ public class SplashScreen implements Screen {
 		
 		Globals.batch.setProjectionMatrix(camera.combined);
 		Globals.batch.begin();
-		Globals.batch.draw(splashimg, 0,Constants.SCREEN_H-splashimg.getHeight());
+		Globals.batch.draw(splashimg, 0,0);
 		Globals.batch.end();
 		
 		

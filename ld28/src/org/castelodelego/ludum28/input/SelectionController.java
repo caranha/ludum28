@@ -1,11 +1,13 @@
 package org.castelodelego.ludum28.input;
 
+import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.screens.SelectionScreen;
 
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 /**
  * Controls the input for the PowerUp/Difficulty selector
@@ -15,6 +17,15 @@ import com.badlogic.gdx.InputProcessor;
  */
 public class SelectionController implements InputProcessor {
 
+	Vector2 unprojectCoordinates(float x, float y)
+	{
+		Vector3 rawtouch = new Vector3(x, y,0);
+		Globals.cam.unproject(rawtouch); 
+		
+		Vector2 ret = new Vector2(rawtouch.x, rawtouch.y);
+		return ret;
+	}
+	
 
 	@Override
 	public boolean keyTyped(char character) {
@@ -57,26 +68,26 @@ public class SelectionController implements InputProcessor {
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 
+		Vector2 touch = unprojectCoordinates(screenX,screenY);
+		
 		for (int i = 0; i < 4; i++)
-			if (SelectionScreen.modeRect[i].contains(screenX, Constants.SCREEN_H-screenY))
+			if (SelectionScreen.modeRect[i].contains(touch))
 			{
 				((SelectionScreen) Ludum28.selectionScreen).setPlayerMode(i);
 				return true;
 			}
 		
 		for (int i = 0; i < 3; i++)
-			if (SelectionScreen.diffRect[i].contains(screenX, Constants.SCREEN_H-screenY))
+			if (SelectionScreen.diffRect[i].contains(touch))
 			{
 				((SelectionScreen) Ludum28.selectionScreen).setDifficultyLevel(i);
 				return true;
 			}
-		if (SelectionScreen.startRect.contains(screenX, Constants.SCREEN_H-screenY))
+		if (SelectionScreen.startRect.contains(touch))
 		{
 			((SelectionScreen) Ludum28.selectionScreen).startGame();
 			return true;
 		}
-		
-		// TODO Auto-generated method stub
 		return false;
 	}
 
