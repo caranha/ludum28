@@ -10,6 +10,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -57,6 +58,13 @@ public class Ludum28 extends Game {
 		Globals.manager.load("sfx/pew.ogg", Sound.class);
 		Globals.manager.load("sfx/roar.ogg", Sound.class);
 		Globals.manager.load("sfx/explosion1.ogg", Sound.class);
+		
+		// adding music
+		Globals.manager.load("music/play1.ogg", Music.class);
+		Globals.manager.load("music/play2.ogg", Music.class);
+		Globals.manager.load("music/title.ogg", Music.class);
+		Globals.manager.load("music/boss1.ogg", Music.class);
+		Globals.manager.load("music/boss2.ogg", Music.class);
 	}
 	
 	@Override
@@ -72,13 +80,18 @@ public class Ludum28 extends Game {
 		// Good for rendering debug info
 		
 		// Uncomment for FPS
-		Globals.batch.begin();
-		Globals.debugtext.setColor(Color.YELLOW);
-		Globals.debugtext.draw(Globals.batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, Constants.SCREEN_H);		
-		Globals.debugtext.draw(Globals.batch, "Score: "+Globals.score, Constants.SCREEN_W-130, Constants.SCREEN_H);
-		Globals.debugtext.draw(Globals.batch, "MaxScore: "+Globals.maxscore, Constants.SCREEN_W-130, Constants.SCREEN_H-20);
-		Globals.debugtext.draw(Globals.batch, "Global Difficulty: "+Globals.currentdifficulty, Constants.SCREEN_W-130, Constants.SCREEN_H-40);
-		Globals.batch.end();
+		if (Gdx.app.getLogLevel()!=Gdx.app.LOG_NONE)
+		{
+			Globals.batch.begin();
+			Globals.debugtext.setColor(Color.YELLOW);
+			Globals.debugtext.draw(Globals.batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, Constants.SCREEN_H);		
+			Globals.debugtext.draw(Globals.batch, "Score: "+Globals.score, Constants.SCREEN_W-130, Constants.SCREEN_H);
+			Globals.debugtext.draw(Globals.batch, "MaxScore: "+Globals.maxscore, Constants.SCREEN_W-130, Constants.SCREEN_H-20);
+			Globals.debugtext.draw(Globals.batch, "Global Difficulty: "+Globals.currentdifficulty, Constants.SCREEN_W-130, Constants.SCREEN_H-40);
+			Globals.batch.end();
+		}
+		
+		Globals.musicbox.update(Gdx.app.getGraphics().getDeltaTime());
 	}
 
 	@Override

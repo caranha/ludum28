@@ -7,6 +7,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 
@@ -52,6 +53,7 @@ public class MainScreen implements Screen, InputProcessor {
 
 	@Override
 	public void show() {
+		Globals.musicbox.playnext(Globals.manager.get("music/title.ogg",Music.class));
 		Gdx.input.setInputProcessor(this);
 		gotogame = false;
 	}

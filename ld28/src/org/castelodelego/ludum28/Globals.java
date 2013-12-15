@@ -51,6 +51,8 @@ public class Globals {
 	static int basedifficulty = 0;
 	static int currentdifficulty = 0;
 	// Game-based Variables\
+	
+	public static SoundServer musicbox;
 		
 	public static void init()
 	{
@@ -68,6 +70,8 @@ public class Globals {
 		levels = new Array<StageTimeline>();
 		levels.add(new RandomTimeline());
 		maxscore = Gdx.app.getPreferences("DinoRush").getInteger("Maxscore", 0);
+		
+		musicbox = new SoundServer();
 	}
 	
 	/** 
@@ -141,6 +145,8 @@ public class Globals {
 	public static StageTimeline getCurrentLevel() {
 		return levels.get(currentlevel);
 	}
+	
+	
 	
 	
 	

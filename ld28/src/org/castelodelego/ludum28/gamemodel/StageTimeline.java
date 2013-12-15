@@ -2,6 +2,8 @@ package org.castelodelego.ludum28.gamemodel;
 
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 
+import com.badlogic.gdx.audio.Music;
+
 public interface StageTimeline {
 
 	/**
@@ -22,5 +24,6 @@ public interface StageTimeline {
 	public boolean testWin();
 	
 	public ParallaxBackground getParallax();
+	public Music getStartMusic();
 	
 }

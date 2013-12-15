@@ -8,6 +8,7 @@ import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
@@ -75,8 +76,12 @@ public class RandomTimeline implements StageTimeline {
 	            new ParallaxLayer(atlas.findRegion("parallax/Ground2"),new Vector2(0.5f,0),new Vector2(0, Constants.SCREEN_H)),
 	            new ParallaxLayer(atlas.findRegion("parallax/Ground1"),new Vector2(1.0f,0),new Vector2(0, Constants.SCREEN_H))
 	      }, 800, 480,new Vector2(200,0));
-		// TODO Auto-generated method stub
 		return test;
+	}
+
+	@Override
+	public Music getStartMusic() {
+		return Globals.manager.get("music/play1.ogg",Music.class);
 	}
 
 }

@@ -57,7 +57,8 @@ public class GameScreen implements Screen {
 		props.clear();
 		
 		background = t.getParallax();
-
+		
+		Globals.musicbox.playnext(t.getStartMusic());
 		Gdx.input.setInputProcessor(Globals.getGameController());
 	}
 			
