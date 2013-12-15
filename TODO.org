@@ -40,14 +40,16 @@
 - [X] Make Player stop when they reach their "target"
 - [X] Add Shield and Big gun Modes
 - [X] Add Game Over Screen
+- [X] Add Title Screen
+- [X] Add Tank Enemy
+- [X] Add Player death animation/Death timer
+- [X] Add Level Victory animation/Victory timer
 
-- [ ] Add Title Screen
-- [ ] Add Player death animation/Death timer
-- [ ] Add Level Victory animation/Victory timer
-
-- [ ] Add Tank Enemy
 - [ ] Add Homing Enemy
 - [ ] Add Non-moving Enemy
+
+
+
 
 - [ ] Add Transition to GAMEOVER screen
 - [ ] Add Transition to Main screen
@@ -59,14 +61,18 @@
 - [X] Random moving Enemy
 - [ ] Non-moving Enemy
 - [ ] Enemy that Zooms in on Player
-- [ ] Enemy that stays in the back, shooting at the player
+- [X] Enemy that stays in the back, shooting at the player
 - [ ] Enemy that tries to stay away from the player
 - [ ] Strong enemy that fill the screen with shots
 - [ ] Boss with a shot that covers most of the screen
 
 * Boosts
   - [X] Wide Shooter (Shoots five lasers in an arc)
-  - [ ] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
-  - [ ] Shield (Can take three attacks before dying. Regenerates)
+  - [X] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
+  - [X] Shield (Can take three attacks before dying. Regenerates)
   - [X] Speed Boost (Faster)
  
+* Levels
+  - [ ] Non-random level with a boss
+  - [ ] Valley level
+  - [ ] Volcano level

@@ -13,6 +13,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -32,7 +33,8 @@ public class GameScreen implements Screen {
 	
 	ParallaxBackground background;
 	
-	
+	float exittimer;
+	boolean end;
 	
 	public GameScreen()
 	{
@@ -60,6 +62,9 @@ public class GameScreen implements Screen {
 		
 		Globals.musicbox.playnext(t.getStartMusic());
 		Gdx.input.setInputProcessor(Globals.getGameController());
+		
+		exittimer = 2.5f;
+		end = false;
 	}
 			
 	
@@ -147,6 +152,25 @@ public class GameScreen implements Screen {
 		
 		timeline.update(delta);
 		
+		
+		
+		if (timeline.testWin() && getTotalEnemies() == 0)
+			end = true;
+		if (!player.isAlive())
+			end = true;
+		
+		if (end)
+		{
+			exittimer -= delta;
+			if (exittimer <= 0)
+				leaveLevel();
+		}
+		
+			
+	}
+	
+	void leaveLevel()
+	{
 		if (!player.isAlive())
 		{
 			Globals.playerDies(player.getMode());
@@ -158,13 +182,15 @@ public class GameScreen implements Screen {
 			else	
 				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 			
-		} else if (timeline.testWin() && getTotalEnemies() == 0)
+		} else 
 		{
 			Globals.playerWins();
+			(Globals.manager.get("sfx/roar.ogg", Sound.class)).play();
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 		}
-			
+
 	}
+	
 	
 	void debugRender()
 	{
@@ -200,6 +226,24 @@ public class GameScreen implements Screen {
 		
 		Globals.getScoreFont().setColor(0,0.6f,0,1);
 		Globals.getScoreFont().draw(Globals.batch, "ScORE: "+Globals.score, 5, 50);
+
+		if (end)
+		{
+			if (player.isAlive())
+			{
+				Globals.getScoreFont().draw(Globals.batch, "YOU cONQUERED ALL ENEMIES!", 170, 470);
+				Globals.getScoreFont().draw(Globals.batch, "LET'S MAKE IT HARDER", 230, 430);
+			}
+			else
+			{
+				Globals.getScoreFont().setColor(1,0,0,1);
+				Globals.getScoreFont().draw(Globals.batch, "YOU WERE DEfEATED...", 240, 430);
+			}
+		}
+		
+
+		
+		
 		Globals.batch.end();
 	}
 	
