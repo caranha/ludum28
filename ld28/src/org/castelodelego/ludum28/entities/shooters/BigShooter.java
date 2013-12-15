@@ -1,7 +1,9 @@
-package org.castelodelego.ludum28.entities;
+package org.castelodelego.ludum28.entities.shooters;
 
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
+import org.castelodelego.ludum28.entities.Flyer;
+import org.castelodelego.ludum28.entities.Laser;
 import org.castelodelego.ludum28.screens.GameScreen;
 
 import com.badlogic.gdx.audio.Sound;
@@ -11,9 +13,9 @@ import com.badlogic.gdx.math.Vector2;
  * Very simple shooter, that shoots a small laser forwards
  * @author caranha
  */
-public class PeaShooter implements Shooter {
+public class BigShooter implements Shooter {
 
-	float CDTIMER = 0.5f;
+	float CDTIMER = 0.8f;
 	float cooldown = 0;
 	
 	static Sound pewpew = Globals.manager.get("sfx/pew.ogg", Sound.class);
@@ -29,16 +31,17 @@ public class PeaShooter implements Shooter {
 			else
 				d = new Vector2(-1,0);
 			
-			Flyer pew = new Laser(pos.cpy(),new Vector2(10,2));
-			pew.setSpeed(500);
+			Flyer pew = new Laser(pos.cpy(),new Vector2(40,15));
+			pew.setSpeed(250);
+			pew.setHitpoints(20);
 			pew.setDirection(d);
 			pew.setTeam(team);
 			
-			pew.setAnim(Globals.animman.get("PlayerLaser"));
-			pew.setAnimOffset(1, 1);
+			pew.setAnim(Globals.animman.get("BigLaser"));
+			pew.setAnimOffset(0, 0);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			pewpew.play(0.25f);
+			pewpew.play(0.30f, 0.5f, 0);
 			
 			cooldown -= CDTIMER;
 		}		

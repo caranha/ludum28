@@ -1,7 +1,9 @@
-package org.castelodelego.ludum28.entities;
+package org.castelodelego.ludum28.entities.shooters;
 
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
+import org.castelodelego.ludum28.entities.Flyer;
+import org.castelodelego.ludum28.entities.Laser;
 import org.castelodelego.ludum28.screens.GameScreen;
 
 import com.badlogic.gdx.audio.Sound;

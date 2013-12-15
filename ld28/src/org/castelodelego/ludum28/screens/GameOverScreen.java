@@ -43,6 +43,7 @@ public class GameOverScreen implements Screen,InputProcessor {
 
 	@Override
 	public void show() {
+		Globals.musicbox.stop();
 		Gdx.input.setInputProcessor(this);
 		getout = false;
 

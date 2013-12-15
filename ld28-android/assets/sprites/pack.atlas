@@ -3,30 +3,135 @@ pack.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+BigLaser
+  rotate: false
+  xy: 530, 157
+  size: 40, 15
+  orig: 40, 15
+  offset: 0, 0
+  index: 1
+BigLaser
+  rotate: false
+  xy: 596, 223
+  size: 40, 15
+  orig: 40, 15
+  offset: 0, 0
+  index: 2
+BigLaser
+  rotate: false
+  xy: 36, 25
+  size: 40, 15
+  orig: 40, 15
+  offset: 0, 0
+  index: 3
 DinoMode1
   rotate: false
-  xy: 2, 42
+  xy: 2, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode1
   rotate: false
+  xy: 2, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoMode2
+  rotate: false
+  xy: 68, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoMode2
+  rotate: false
+  xy: 2, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoMode3
+  rotate: false
+  xy: 68, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoMode3
+  rotate: false
+  xy: 134, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoMode4
+  rotate: false
   xy: 68, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoMode4
+  rotate: false
+  xy: 134, 108
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar1
   rotate: false
-  xy: 134, 42
+  xy: 200, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar1
   rotate: false
+  xy: 134, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoRoar2
+  rotate: false
+  xy: 200, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoRoar2
+  rotate: false
+  xy: 266, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoRoar3
+  rotate: false
   xy: 200, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoRoar3
+  rotate: false
+  xy: 266, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+DinoRoar4
+  rotate: false
+  xy: 332, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+DinoRoar4
+  rotate: false
+  xy: 266, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -40,11 +145,67 @@ PlayerLaser
   index: 1
 PlayerLaser
   rotate: false
-  xy: 36, 36
+  xy: 464, 68
   size: 12, 4
   orig: 12, 4
   offset: 0, 0
   index: 2
+Shield1
+  rotate: false
+  xy: 332, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+Shield1
+  rotate: false
+  xy: 398, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+Shield1
+  rotate: false
+  xy: 332, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+Shield1
+  rotate: false
+  xy: 398, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+Shield2
+  rotate: false
+  xy: 464, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+Shield2
+  rotate: false
+  xy: 398, 42
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+Shield2
+  rotate: false
+  xy: 464, 108
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+Shield2
+  rotate: false
+  xy: 530, 174
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
 SimpleEnemy
   rotate: false
   xy: 2, 8
@@ -54,7 +215,7 @@ SimpleEnemy
   index: 1
 SimpleEnemy
   rotate: false
-  xy: 266, 74
+  xy: 464, 74
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

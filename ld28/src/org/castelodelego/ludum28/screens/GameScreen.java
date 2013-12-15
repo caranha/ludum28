@@ -32,7 +32,6 @@ public class GameScreen implements Screen {
 	ParallaxBackground background;
 	
 	
-	int roartimer = 0; // TODO: Move this to the Player Class;
 	
 	public GameScreen()
 	{
@@ -47,7 +46,7 @@ public class GameScreen implements Screen {
 	public void reset(Player p, StageTimeline t, int difficulty)
 	{
 		player = p;
-		p.setPosition(new Vector2(20,20));
+		p.setPosition(new Vector2(45,220));
 
 		timeline = t;
 		timeline.reset(difficulty);
@@ -136,6 +135,7 @@ public class GameScreen implements Screen {
 			if (col1.testCollision(player.getPosition(), player.getHitbox()))
 			{
 				player.doCollision(col1);
+				col1.doCollision(player);
 			}
 			
 		}
@@ -155,7 +155,7 @@ public class GameScreen implements Screen {
 			else	
 				((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
 			
-		} else if (timeline.testWin())
+		} else if (timeline.testWin() && getTotalEnemies() == 0)
 		{
 			Globals.playerWins();
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.selectionScreen);
@@ -194,6 +194,9 @@ public class GameScreen implements Screen {
 		{
 			aux.renderSprite();
 		}
+		
+		Globals.getScoreFont().setColor(0,0.6f,0,1);
+		Globals.getScoreFont().draw(Globals.batch, "ScORE: "+Globals.score, 5, 50);
 		Globals.batch.end();
 	}
 	
@@ -236,6 +239,10 @@ public class GameScreen implements Screen {
 		return player;
 	}
 	
+	public int getTotalEnemies()
+	{
+		return enemies.size;
+	}
 	
 	@Override
 	public void resize(int width, int height) {

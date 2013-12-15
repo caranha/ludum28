@@ -1,4 +1,4 @@
-package org.castelodelego.ludum28.entities;
+package org.castelodelego.ludum28.entities.shooters;
 
 import com.badlogic.gdx.math.Vector2;
 

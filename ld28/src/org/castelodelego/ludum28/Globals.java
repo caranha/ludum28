@@ -35,6 +35,8 @@ public class Globals {
 	public static Random dice;
 		
 	public static BitmapFont debugtext;
+	static BitmapFont scorefont	;
+
 
 	public static Array<StageTimeline> levels;
 	
@@ -47,6 +49,7 @@ public class Globals {
 	public static boolean modes[] = {true, true, true, true};
 	public static boolean gameover = false;	
 	public static int score;
+
 	
 	static int basedifficulty = 0;
 	static int currentdifficulty = 0;
@@ -99,7 +102,7 @@ public class Globals {
 	public static int getCurrentDifficulty(int modifier)
 	{
 		currentdifficulty = basedifficulty+modifier;
-		return basedifficulty;
+		return currentdifficulty;
 	}
 	
 	
@@ -146,8 +149,13 @@ public class Globals {
 		return levels.get(currentlevel);
 	}
 	
-	
-	
+	static public BitmapFont getScoreFont()
+	{
+		if (scorefont == null)
+			scorefont = manager.get("fonts/score.fnt", BitmapFont.class);
+		return scorefont;
+	}
+
 	
 	
 }

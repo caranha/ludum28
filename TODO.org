@@ -37,15 +37,17 @@
 - [X] Add Abundant Music soundtrack
 - [X] Add Base Screen for Selection Screen
 - [X] Add Mouse control for Selection Screen
-
-
-- [ ] Make Player stop when they reach their "target"
-- [ ] Add Shield and Big gun Modes
+- [X] Make Player stop when they reach their "target"
+- [X] Add Shield and Big gun Modes
 
 - [ ] Add Title Screen
+- [ ] Add Game Over Screen
 - [ ] Add Player death animation/Death timer
 - [ ] Add Level Victory animation/Victory timer
-- [ ] Add Game Over Screen
+
+- [ ] Add Tank Enemy
+- [ ] Add Homing Enemy
+- [ ] Add Non-moving Enemy
 
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option

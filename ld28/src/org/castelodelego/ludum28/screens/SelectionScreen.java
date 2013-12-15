@@ -10,6 +10,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -40,14 +41,17 @@ public class SelectionScreen implements Screen {
 	public void setPlayerMode(int i) {
 	
 		if (Globals.modes[i])
+		{
+			(Globals.manager.get("sfx/goodchoice.ogg", Sound.class)).play();	
 			selectedPlayerMode = i;
+		}
 		else
-			;//TODO: Add error sound when an invalid option is selected;
-		
+			(Globals.manager.get("sfx/badchoice.ogg", Sound.class)).play();		
 	}
 	
 	public void setDifficultyLevel(int i) {
 		selectedDifficulty = i;
+		(Globals.manager.get("sfx/goodchoice.ogg", Sound.class)).play();
 	}
 	
 	public void startGame() {
@@ -56,10 +60,6 @@ public class SelectionScreen implements Screen {
 			Player ship = new Player(selectedPlayerMode);
 			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.getCurrentDifficulty(selectedDifficulty*4));
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
-		}
-		else
-		{
-			//TODO: Add error message: invalid player mode selected
 		}
 	}
 	
@@ -174,8 +174,7 @@ public class SelectionScreen implements Screen {
 			modeanim = new Animation[4];
 			for (int i = 0; i < 4; i++)
 			{
-				// FIXME - Do all the dinossaur animations!
-				modeanim[i] = Globals.animman.get("DinoMode"+(1));
+				modeanim[i] = Globals.animman.get("DinoMode"+(i+1));
 			}	
 
 		}

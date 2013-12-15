@@ -1,6 +1,7 @@
 package org.castelodelego.ludum28.entities;
 
 import org.castelodelego.ludum28.Globals;
+import org.castelodelego.ludum28.entities.shooters.Shooter;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -143,7 +144,7 @@ public abstract class Flyer {
 	
 	public void setTarget(Vector2 target)
 	{
-		direction.set(target.x - position.x, target.y - position.y);
+		direction.set(target.x - (position.x+hitbox.x/2), target.y - (position.y+hitbox.y/2));
 	}
 	
 	public void setTeam(int t)

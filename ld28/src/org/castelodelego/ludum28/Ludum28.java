@@ -13,6 +13,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class Ludum28 extends Game {
@@ -31,7 +32,7 @@ public class Ludum28 extends Game {
 		
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		
-		Globals.init(); // TODO: Send an instance of myself to "globals"
+		Globals.init();
 		
 		// Creating global resource managers
 		queueAssets();
@@ -58,6 +59,8 @@ public class Ludum28 extends Game {
 		Globals.manager.load("sfx/pew.ogg", Sound.class);
 		Globals.manager.load("sfx/roar.ogg", Sound.class);
 		Globals.manager.load("sfx/explosion1.ogg", Sound.class);
+		Globals.manager.load("sfx/badchoice.ogg", Sound.class);
+		Globals.manager.load("sfx/goodchoice.ogg", Sound.class);
 		
 		// adding music
 		Globals.manager.load("music/play1.ogg", Music.class);
@@ -65,11 +68,11 @@ public class Ludum28 extends Game {
 		Globals.manager.load("music/title.ogg", Music.class);
 		Globals.manager.load("music/boss1.ogg", Music.class);
 		Globals.manager.load("music/boss2.ogg", Music.class);
+		
+		// adding font
+		Globals.manager.load("fonts/score.fnt", BitmapFont.class);
 	}
 	
-	@Override
-	public void dispose() {
-	}
 
 	@Override
 	public void render() {		
@@ -80,7 +83,7 @@ public class Ludum28 extends Game {
 		// Good for rendering debug info
 		
 		// Uncomment for FPS
-		if (Gdx.app.getLogLevel()!=Gdx.app.LOG_NONE)
+		if (Gdx.app.getLogLevel()!=Application.LOG_NONE)
 		{
 			Globals.batch.begin();
 			Globals.debugtext.setColor(Color.YELLOW);
@@ -98,11 +101,11 @@ public class Ludum28 extends Game {
 	public void resize(int width, int height) {
 	}
 
-	@Override
-	public void pause() {
-	}
-
-	@Override
-	public void resume() {
-	}
+//	@Override
+//	public void pause() {
+//	}
+//
+//	@Override
+//	public void resume() {
+//	}
 }

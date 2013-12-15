@@ -8,6 +8,7 @@ import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -25,6 +26,7 @@ public class RandomTimeline implements StageTimeline {
 		cooldown = 0;
 		totaltime = 0;
 		difficulty = diff;
+		Gdx.app.log("Difficulty", difficulty+"");
 		
 		CD_Timer = BaseTimer*(5f/(diff+5f));		
 	}
@@ -34,7 +36,7 @@ public class RandomTimeline implements StageTimeline {
 		cooldown += delta;
 		totaltime += delta
 				;
-		if (cooldown > CD_Timer)
+		if (cooldown > CD_Timer && !testWin()) // create an enemy
 		{
 			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
 			float mookspeed = 70+(difficulty*3);
@@ -45,7 +47,7 @@ public class RandomTimeline implements StageTimeline {
 			
 			BasicEnemy mook = new BasicEnemy(pos);
 			mook.goUp(Globals.dice.nextBoolean());			
-			mook.setScore(difficulty);
+			mook.setScore(difficulty+1);
 			mook.setHitpoints((difficulty/3)+1);
 			mook.setSpeed(mookspeed);
 			mook.setAmplitude(Math.max(50, 130-(Globals.dice.nextFloat()*10*difficulty)));
