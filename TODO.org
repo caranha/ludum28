@@ -34,7 +34,7 @@
 - [X] Add "setAnimation" to Flyer Class
 - [X] SpriteRender happens only if Animation is not null.
 
-- [ ] Add Increasing Difficulty
+- [X] Add Increasing Difficulty
 - [ ] Add "shaking" effect to Flyer Class
 - [ ] Add laser sprite
 - [ ] Add Explosion sound

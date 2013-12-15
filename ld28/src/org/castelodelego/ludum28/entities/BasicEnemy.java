@@ -29,6 +29,10 @@ public class BasicEnemy extends Flyer
 		setAnim(Globals.animman.get("SimpleEnemy"));
 	}
 	
+	public void setAmplitude(float max)
+	{
+		maxY = max;
+	}
 	
 	public void goUp(boolean t)
 	{

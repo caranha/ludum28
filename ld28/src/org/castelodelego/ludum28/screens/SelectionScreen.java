@@ -35,8 +35,7 @@ public class SelectionScreen implements Screen {
 		if (Globals.modes[selectedPlayerMode])
 		{
 			Player ship = new Player(selectedPlayerMode);
-			Globals.currentdifficulty += selectedDifficulty*2;
-			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.currentdifficulty);
+			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.getCurrentDifficulty(selectedDifficulty*2));
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
 		}
 		else

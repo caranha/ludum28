@@ -13,41 +13,57 @@ import com.badlogic.gdx.math.Vector2;
 
 public class RandomTimeline implements StageTimeline {
 
-	float CD_Timer = 0.7f;
+	float BaseTimer = 1.3f;
+	float CD_Timer;
 	float cooldown = 0;
 	float totaltime = 0;
+	int difficulty;
 	
 	@Override
-	public void reset(int difficulty) {
+	public void reset(int diff) {
 		cooldown = 0;
 		totaltime = 0;
+		difficulty = diff;
+		
+		CD_Timer = BaseTimer*(5f/(diff+5f));		
 	}
 
 	@Override
 	public void update(float delta) {
 		cooldown += delta;
-		totaltime += delta;
+		totaltime += delta
+				;
 		if (cooldown > CD_Timer)
 		{
 			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
+			float mookspeed = 70+(difficulty*3);
+			if (Globals.dice.nextFloat() < 0.4f)
+				mookspeed += difficulty*5;
+			if (Globals.dice.nextFloat() < 0.1f)
+				mookspeed += (difficulty-3)*10;
 			
 			BasicEnemy mook = new BasicEnemy(pos);
-			mook.goUp(Globals.dice.nextBoolean());
-			mook.setScore(3);
+			mook.goUp(Globals.dice.nextBoolean());			
+			mook.setScore(difficulty);
+			mook.setHitpoints((difficulty/3)+1);
+			mook.setSpeed(mookspeed);
+			mook.setAmplitude(Math.max(50, 130-(Globals.dice.nextFloat()*10*difficulty)));
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(mook);
 			cooldown -= CD_Timer;
 		}
+		
+		
 	}
 
 	@Override
 	public boolean testWin() {
-		return totaltime > 20;
+		return totaltime > 25+difficulty*2;
 	}
 	
 	public void setSpeed(float s)
 	{
-		CD_Timer = s;
+		BaseTimer = s;
 	}
 
 	@Override

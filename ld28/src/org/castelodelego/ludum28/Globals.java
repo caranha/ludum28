@@ -46,10 +46,10 @@ public class Globals {
 	public static boolean keyboard;
 	public static boolean modes[] = {true, true, true, true};
 	public static boolean gameover = false;	
-	
-
-	public static int currentdifficulty = 0;
 	public static int score;
+	
+	static int basedifficulty = 0;
+	static int currentdifficulty = 0;
 	// Game-based Variables\
 		
 	public static void init()
@@ -92,6 +92,13 @@ public class Globals {
 		
 	}
 	
+	public static int getCurrentDifficulty(int modifier)
+	{
+		currentdifficulty = basedifficulty+modifier;
+		return basedifficulty;
+	}
+	
+	
 	public static void playerDies(int type)
 	{
 		modes[type] = false;
@@ -107,7 +114,7 @@ public class Globals {
 	 */
 	public static void playerWins()
 	{
-		currentdifficulty += 1;
+		basedifficulty = currentdifficulty+1;
 		currentlevel = (currentlevel+1)%levels.size;
 	}
 	
