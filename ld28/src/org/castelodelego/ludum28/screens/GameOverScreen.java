@@ -1,6 +1,5 @@
 package org.castelodelego.ludum28.screens;
 
-import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 
@@ -8,27 +7,32 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class GameOverScreen implements Screen,InputProcessor {
 
 	boolean getout = false;
+	float timeout;
+	Sprite backdrop;
 	
 	@Override
 	public void render(float delta) {
 		
+		timeout -= delta;
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
 		Globals.batch.begin();
-		Globals.debugtext.setColor(Color.YELLOW);
-		Globals.debugtext.draw(Globals.batch, "Game Over!",100, Constants.SCREEN_H-80);
-		Globals.debugtext.draw(Globals.batch,"Touch or Press any Key to leave", 100, Constants.SCREEN_H-40);		
+		backdrop.draw(Globals.batch);
+		Globals.getScoreFont().setColor(0,0.6f,0,1);
+		Globals.getScoreFont().draw(Globals.batch, "YOUR ScORE: "+Globals.score, 65, 270);
+		Globals.getScoreFont().draw(Globals.batch, " MAX ScORE: "+Globals.maxscore, 60, 230);
 		Globals.batch.end();
 		
-		if (getout)
+		if (getout && timeout <= 0)
 		{
 			((Game) Gdx.app.getApplicationListener()).setScreen(Ludum28.mainScreen);
 		}
@@ -46,6 +50,9 @@ public class GameOverScreen implements Screen,InputProcessor {
 		Globals.musicbox.stop();
 		Gdx.input.setInputProcessor(this);
 		getout = false;
+		timeout = 1;
+		if (backdrop == null)
+			backdrop = ((TextureAtlas) Globals.manager.get("sprites/pack.atlas", TextureAtlas.class)).createSprite("gui/GameOver");
 
 	}
 

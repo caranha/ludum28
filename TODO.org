@@ -39,9 +39,9 @@
 - [X] Add Mouse control for Selection Screen
 - [X] Make Player stop when they reach their "target"
 - [X] Add Shield and Big gun Modes
+- [X] Add Game Over Screen
 
 - [ ] Add Title Screen
-- [ ] Add Game Over Screen
 - [ ] Add Player death animation/Death timer
 - [ ] Add Level Victory animation/Victory timer
 
@@ -49,6 +49,8 @@
 - [ ] Add Homing Enemy
 - [ ] Add Non-moving Enemy
 
+- [ ] Add Transition to GAMEOVER screen
+- [ ] Add Transition to Main screen
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option
 - [ ] Test if Lasers aren't colliding with ships more than once

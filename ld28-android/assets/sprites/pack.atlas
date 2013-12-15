@@ -225,6 +225,13 @@ pack2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+gui/GameOver
+  rotate: false
+  xy: 2, 505
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
 gui/InstructionsKBD
   rotate: false
   xy: 364, 403
@@ -241,49 +248,49 @@ gui/InstructionsMouse
   index: -1
 gui/buttonWeapon1
   rotate: false
-  xy: 364, 286
+  xy: 804, 870
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon2
   rotate: false
-  xy: 2, 2
+  xy: 364, 286
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon3
   rotate: false
-  xy: 364, 169
+  xy: 2, 2
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon4
   rotate: false
-  xy: 536, 286
+  xy: 804, 753
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/difficultyEasy
   rotate: false
-  xy: 726, 403
+  xy: 364, 184
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
   index: -1
 gui/difficultyHard
   rotate: false
-  xy: 174, 17
+  xy: 536, 301
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
   index: -1
 gui/difficultyNormal
   rotate: false
-  xy: 536, 184
+  xy: 174, 17
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
