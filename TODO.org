@@ -30,22 +30,22 @@
 - [X] Add "shaking" effect to Simple Enemies Class
 - [X] Add laser sprite
 - [X] Add Explosion sound
-
 - [X] Add Explosion Effect (new Flyer Subclass) (Animation passed by parameter)
   - Explosion has life time
   - Explosion has "fade" flag - when this flag is on, rendering is faded based 
     on life time
-
 - [X] Add Abundant Music soundtrack
-- [ ] Add Player death animation/Death timer
-- [ ] Add Shield
-- [ ] Add Level Victory animation/Victory timer
+- [X] Add Base Screen for Selection Screen
+- [X] Add Mouse control for Selection Screen
 
-- [ ] Add Base Screen for Selection Screen
-- [ ] Add Mouse control for Selection Screen
-- [ ] Add Game Over Screen
+
+- [ ] Make Player stop when they reach their "target"
+- [ ] Add Shield and Big gun Modes
+
 - [ ] Add Title Screen
-
+- [ ] Add Player death animation/Death timer
+- [ ] Add Level Victory animation/Victory timer
+- [ ] Add Game Over Screen
 
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option
@@ -65,5 +65,4 @@
   - [ ] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
   - [ ] Shield (Can take three attacks before dying. Regenerates)
   - [X] Speed Boost (Faster)
-  - [ ] Bomb (Every so many seconds, roar also causes a bomb)
  

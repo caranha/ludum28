@@ -56,7 +56,6 @@ public class Player extends Flyer {
 		
 		if (modeanim == null)
 		{
-			Gdx.app.log("[Info]", "Loaded Player Animations");
 			modeanim = new Animation[4];
 			roaranim = new Animation[4];
 			for (int i = 0; i < 4; i++)

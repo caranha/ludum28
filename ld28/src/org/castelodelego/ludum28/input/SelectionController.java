@@ -1,7 +1,9 @@
 package org.castelodelego.ludum28.input;
 
 import org.castelodelego.ludum28.Ludum28;
+import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.screens.SelectionScreen;
+
 
 import com.badlogic.gdx.InputProcessor;
 
@@ -54,6 +56,26 @@ public class SelectionController implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+
+		for (int i = 0; i < 4; i++)
+			if (SelectionScreen.modeRect[i].contains(screenX, Constants.SCREEN_H-screenY))
+			{
+				((SelectionScreen) Ludum28.selectionScreen).setPlayerMode(i);
+				return true;
+			}
+		
+		for (int i = 0; i < 3; i++)
+			if (SelectionScreen.diffRect[i].contains(screenX, Constants.SCREEN_H-screenY))
+			{
+				((SelectionScreen) Ludum28.selectionScreen).setDifficultyLevel(i);
+				return true;
+			}
+		if (SelectionScreen.startRect.contains(screenX, Constants.SCREEN_H-screenY))
+		{
+			((SelectionScreen) Ludum28.selectionScreen).startGame();
+			return true;
+		}
+		
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -62,22 +84,18 @@ public class SelectionController implements InputProcessor {
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
 	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@Override
