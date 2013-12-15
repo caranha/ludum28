@@ -9,6 +9,7 @@ import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -73,7 +74,9 @@ public class GameScreen implements Screen {
 		/*** Rendering the Game ***/
 		background.render(delta);
 		spriteRender();
-		debugRender();
+		
+		if (Gdx.app.getLogLevel() != Application.LOG_NONE)
+			debugRender();
 	}
 
 	void tickGame(float delta)

@@ -5,221 +5,242 @@ filter: Nearest,Nearest
 repeat: none
 BigLaser
   rotate: false
-  xy: 530, 157
+  xy: 652, 173
   size: 40, 15
   orig: 40, 15
   offset: 0, 0
   index: 1
 BigLaser
   rotate: false
-  xy: 596, 223
+  xy: 652, 156
   size: 40, 15
   orig: 40, 15
   offset: 0, 0
   index: 2
 BigLaser
   rotate: false
-  xy: 36, 25
+  xy: 618, 139
   size: 40, 15
   orig: 40, 15
   offset: 0, 0
   index: 3
 DinoMode1
   rotate: false
-  xy: 2, 174
+  xy: 2, 82
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode1
   rotate: false
-  xy: 2, 108
+  xy: 2, 16
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoMode2
   rotate: false
-  xy: 68, 174
+  xy: 90, 140
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode2
   rotate: false
-  xy: 2, 42
+  xy: 178, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoMode3
   rotate: false
-  xy: 68, 108
+  xy: 244, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode3
   rotate: false
-  xy: 134, 174
+  xy: 310, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoMode4
   rotate: false
-  xy: 68, 42
+  xy: 376, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode4
   rotate: false
-  xy: 134, 108
+  xy: 442, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar1
   rotate: false
-  xy: 200, 174
+  xy: 508, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar1
   rotate: false
-  xy: 134, 42
+  xy: 574, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar2
   rotate: false
-  xy: 200, 108
+  xy: 640, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar2
   rotate: false
-  xy: 266, 174
+  xy: 706, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar3
   rotate: false
-  xy: 200, 42
+  xy: 772, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar3
   rotate: false
-  xy: 266, 108
+  xy: 838, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar4
   rotate: false
-  xy: 332, 174
+  xy: 904, 190
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar4
   rotate: false
-  xy: 266, 42
+  xy: 68, 74
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
+PlayerLaser
+  rotate: false
+  xy: 68, 142
+  size: 12, 4
+  orig: 12, 4
+  offset: 0, 0
+  index: 1
 PlayerLaser
   rotate: false
   xy: 2, 2
   size: 12, 4
   orig: 12, 4
   offset: 0, 0
-  index: 1
-PlayerLaser
-  rotate: false
-  xy: 464, 68
-  size: 12, 4
-  orig: 12, 4
-  offset: 0, 0
   index: 2
 Shield1
   rotate: false
-  xy: 332, 108
+  xy: 68, 8
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 Shield1
   rotate: false
-  xy: 398, 174
+  xy: 156, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 Shield1
   rotate: false
-  xy: 332, 42
+  xy: 222, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 3
 Shield1
   rotate: false
-  xy: 398, 108
+  xy: 288, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 4
 Shield2
   rotate: false
-  xy: 464, 174
+  xy: 354, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 Shield2
   rotate: false
-  xy: 398, 42
+  xy: 420, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 Shield2
   rotate: false
-  xy: 464, 108
+  xy: 486, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 3
 Shield2
   rotate: false
-  xy: 530, 174
+  xy: 552, 124
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 4
 SimpleEnemy
   rotate: false
-  xy: 2, 8
+  xy: 970, 222
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 1
 SimpleEnemy
   rotate: false
-  xy: 464, 74
+  xy: 618, 156
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 2
+Tank
+  rotate: false
+  xy: 2, 202
+  size: 86, 52
+  orig: 86, 52
+  offset: 0, 0
+  index: 1
+Tank
+  rotate: false
+  xy: 2, 148
+  size: 86, 52
+  orig: 86, 52
+  offset: 0, 0
+  index: 2
+TankTrash
+  rotate: false
+  xy: 90, 206
+  size: 86, 48
+  orig: 86, 48
+  offset: 0, 0
+  index: -1
 
 pack2.png
 format: RGBA8888
@@ -227,90 +248,102 @@ filter: Nearest,Nearest
 repeat: none
 gui/GameOver
   rotate: false
-  xy: 2, 505
+  xy: 2, 484
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
-gui/InstructionsKBD
+gui/MainScreen
   rotate: false
-  xy: 364, 403
-  size: 360, 100
-  orig: 360, 100
-  offset: 0, 0
-  index: -1
-gui/InstructionsMouse
-  rotate: false
-  xy: 2, 119
-  size: 360, 100
-  orig: 360, 100
+  xy: 2, 2
+  size: 800, 480
+  orig: 800, 480
   offset: 0, 0
   index: -1
 gui/buttonWeapon1
   rotate: false
-  xy: 804, 870
+  xy: 804, 849
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon2
   rotate: false
-  xy: 364, 286
+  xy: 804, 732
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon3
   rotate: false
-  xy: 2, 2
+  xy: 804, 615
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/buttonWeapon4
   rotate: false
-  xy: 804, 753
+  xy: 804, 498
   size: 170, 115
   orig: 170, 115
   offset: 0, 0
   index: -1
 gui/difficultyEasy
   rotate: false
-  xy: 364, 184
+  xy: 804, 396
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
   index: -1
 gui/difficultyHard
   rotate: false
-  xy: 536, 301
+  xy: 804, 294
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
   index: -1
 gui/difficultyNormal
   rotate: false
-  xy: 174, 17
+  xy: 804, 192
   size: 120, 100
   orig: 120, 100
   offset: 0, 0
   index: -1
+
+pack3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+gui/InstructionsKBD
+  rotate: false
+  xy: 2, 2
+  size: 360, 100
+  orig: 360, 100
+  offset: 0, 0
+  index: -1
+gui/InstructionsMouse
+  rotate: false
+  xy: 364, 2
+  size: 360, 100
+  orig: 360, 100
+  offset: 0, 0
+  index: -1
 gui/startKBD
   rotate: false
-  xy: 2, 363
+  xy: 2, 104
   size: 360, 140
   orig: 360, 140
   offset: 0, 0
   index: -1
 gui/startMouse
   rotate: false
-  xy: 2, 221
+  xy: 364, 104
   size: 360, 140
   orig: 360, 140
   offset: 0, 0
   index: -1
 
-pack3.png
+pack4.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -336,7 +369,7 @@ parallax/Ground3
   offset: 0, 0
   index: -1
 
-pack4.png
+pack5.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none

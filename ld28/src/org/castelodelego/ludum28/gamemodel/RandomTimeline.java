@@ -3,7 +3,7 @@ package org.castelodelego.ludum28.gamemodel;
 import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.entities.BasicEnemy;
+import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
@@ -38,19 +38,11 @@ public class RandomTimeline implements StageTimeline {
 				;
 		if (cooldown > CD_Timer && !testWin()) // create an enemy
 		{
-			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-			float mookspeed = 70+(difficulty*3);
-			if (Globals.dice.nextFloat() < 0.4f)
-				mookspeed += difficulty*5;
-			if (Globals.dice.nextFloat() < 0.1f)
-				mookspeed += (difficulty-3)*10;
+			Flyer mook;
 			
-			BasicEnemy mook = new BasicEnemy(pos);
-			mook.goUp(Globals.dice.nextBoolean());			
-			mook.setScore(difficulty+1);
-			mook.setHitpoints((difficulty/3)+1);
-			mook.setSpeed(mookspeed);
-			mook.setAmplitude(Math.max(50, 130-(Globals.dice.nextFloat()*10*difficulty)));
+			Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
+			mook = EnemyFactory.getBasicEnemy(difficulty);
+			mook.setPosition(pos);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(mook);
 			cooldown -= CD_Timer;

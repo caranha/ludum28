@@ -8,15 +8,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
-import org.castelodelego.ludum28.Constants;
 
 public class MainScreen implements Screen, InputProcessor {
 
 	
-	
+	Sprite backdrop;
 	boolean gotogame = false;
 	boolean keyboard = true;
 	
@@ -32,10 +32,11 @@ public class MainScreen implements Screen, InputProcessor {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		Globals.batch.begin();
-		Globals.debugtext.setColor(Color.YELLOW);
-		Globals.debugtext.draw(Globals.batch, "Click Mouse to Begin with Mouse Controls",100, Constants.SCREEN_H-80);
-		Globals.debugtext.draw(Globals.batch,"Press Space to begin with Keyboard Controls", 100, Constants.SCREEN_H-40);		
+		backdrop.draw(Globals.batch);
+		Globals.getScoreFont().setColor(0,0.6f,0,1);
+		Globals.getScoreFont().draw(Globals.batch, " MAX ScORE: "+Globals.maxscore, 450, 190);
 		Globals.batch.end();
+		
 		
 		if (gotogame)
 		{
@@ -56,6 +57,8 @@ public class MainScreen implements Screen, InputProcessor {
 		Globals.musicbox.playnext(Globals.manager.get("music/title.ogg",Music.class));
 		Gdx.input.setInputProcessor(this);
 		gotogame = false;
+		if (backdrop == null)
+			backdrop = ((TextureAtlas) Globals.manager.get("sprites/pack.atlas", TextureAtlas.class)).createSprite("gui/MainScreen");
 	}
 
 	@Override
