@@ -30,8 +30,8 @@ public class Ludum28 extends Game {
 	@Override
 	public void create() {	
 		
-		Gdx.app.setLogLevel(Application.LOG_NONE);
-//		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+//		Gdx.app.setLogLevel(Application.LOG_NONE);
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		
 		Globals.init();
 		

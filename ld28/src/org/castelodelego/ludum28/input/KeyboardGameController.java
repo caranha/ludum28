@@ -1,14 +1,29 @@
 package org.castelodelego.ludum28.input;
 
+import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.screens.GameScreen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 public class KeyboardGameController implements InputProcessor {
 
+	long taptime;
+	
+	Vector2 unprojectCoordinates(float x, float y)
+	{
+		Vector3 rawtouch = new Vector3(x, y,0);
+		Globals.cam.unproject(rawtouch); 
+		
+		Vector2 ret = new Vector2(rawtouch.x, rawtouch.y);
+		return ret;
+	}
+	
+	
 	Vector2 dir = new Vector2(0,0);
 	
 	boolean up = false;
@@ -118,15 +133,25 @@ public class KeyboardGameController implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		return false;
+		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(screenX,screenY));
+		return true;
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		return false;
+		
+		long time = Gdx.input.getCurrentEventTime();
+		Gdx.app.log("Tap Time", (time-taptime)+"");
+		if ((time - taptime) < 180000000)
+			((GameScreen) Ludum28.gameScreen).doPlayerRoar();
+		taptime = time;
+		
+		return true;
 	}
+
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		return false;
+		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(screenX,screenY));
+		return true;
 	}
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {

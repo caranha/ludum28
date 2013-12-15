@@ -5,7 +5,6 @@ import java.util.Random;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 import org.castelodelego.ludum28.input.KeyboardGameController;
-import org.castelodelego.ludum28.input.MouseGameController;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -13,7 +12,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.utils.Array;
 
 
@@ -84,10 +82,7 @@ public class Globals {
 	public static void startGame(boolean kb)
 	{
 		keyboard = kb;
-		if (keyboard)
-			Globals.gamecontroller = new KeyboardGameController();
-		else	
-			gamecontroller = new GestureDetector(new MouseGameController());
+		Globals.gamecontroller = new KeyboardGameController();
 		for (int i = 0; i < 4; i++)
 			modes[i] = true;
 		
