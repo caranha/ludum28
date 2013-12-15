@@ -16,7 +16,7 @@ public class SelectionScreen implements Screen {
 
 	SelectionController p = new SelectionController();
 	int selectedPlayerMode = 0;
-	int selectedDifficulty = 0;
+	int selectedDifficulty = 1;
 	
 
 	public void setPlayerMode(int i) {
@@ -35,7 +35,7 @@ public class SelectionScreen implements Screen {
 		if (Globals.modes[selectedPlayerMode])
 		{
 			Player ship = new Player(selectedPlayerMode);
-			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.getCurrentDifficulty(selectedDifficulty*2));
+			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.getCurrentDifficulty(selectedDifficulty*4));
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
 		}
 		else
@@ -77,8 +77,14 @@ public class SelectionScreen implements Screen {
 
 	@Override
 	public void show() {
-		selectedPlayerMode = 0;
-		selectedDifficulty = 0;
+
+		if (!Globals.modes[selectedPlayerMode])
+			for (int i = 0; i < 4; i++)
+				if (Globals.modes[i])
+				{
+					selectedPlayerMode = i;
+					break;
+				}
 		Gdx.input.setInputProcessor(p);
 	}
 

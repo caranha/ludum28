@@ -16,6 +16,8 @@ public class PeaShooter implements Shooter {
 	float CDTIMER = 0.5f;
 	float cooldown = 0;
 	
+	static Sound pewpew = Globals.manager.get("sfx/pew.ogg", Sound.class);
+	
 	@Override
 	public void Shoot(Vector2 pos, Vector2 dir, int team, float delta) {
 		cooldown += delta;
@@ -32,8 +34,11 @@ public class PeaShooter implements Shooter {
 			pew.setDirection(d);
 			pew.setTeam(team);
 			
+			pew.setAnim(Globals.animman.get("PlayerLaser"));
+			pew.setAnimOffset(1, 1);
+			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			(Globals.manager.get("sfx/pew.ogg", Sound.class)).play(0.25f);
+			pewpew.play(0.25f);
 			
 			cooldown -= CDTIMER;
 		}		

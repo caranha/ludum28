@@ -6,48 +6,50 @@
 - [X] Add enemies
 - [X] Add random generation of enemies
 - [X] Collision between player shots and enemies
-
 - [X] Add keyboard controls
 - [X] Menu screen selects between keyboard controls and mouse controls
-
 - [X] Add roar
 - [X] Add pew pew (small)
 - [X] Player now Dies
-
 - [X] Add Two upgrades (multiple shot, speed)
 - [X] Add Upgrade selection screen
 - [X] Add Game Over Conditions
-
 - [X] Add Scoring
 - [X] Add Max Score
-
 - [X] Add "Enemy AI" (linked function that controls enemy movement)
 - [X] Add "Death Function" (linked functions that control when an enemy dies)
-
 - [X] Add Sprites for player
 - [X] Add Parallax Background
 - [X] Draw Parallax Background
 - [X] Add Screen Limits for the player
-
 - [X] Add Sprites for Simple Enemy
 - [X] Add Gun Offset
 - [X] Add "setAnimation" to Flyer Class
 - [X] SpriteRender happens only if Animation is not null.
-
 - [X] Add Increasing Difficulty
-- [ ] Add "shaking" effect to Flyer Class
-- [ ] Add laser sprite
-- [ ] Add Explosion sound
+- [X] Add "shaking" effect to Simple Enemies Class
+- [X] Add laser sprite
+- [X] Add Explosion sound
 
-- [ ] Add Explosion Effect (new Flyer Subclass) (Animation passed by parameter)
+- [X] Add Explosion Effect (new Flyer Subclass) (Animation passed by parameter)
   - Explosion has life time
   - Explosion has "fade" flag - when this flag is on, rendering is faded based 
     on life time
 
 - [ ] Add Abundant Music soundtrack
+- [ ] Add Player death animation/Death timer
+- [ ] Add Shield
+- [ ] Add Level Victory animation/Victory timer
+
+- [ ] Add Base Screen for Selection Screen
+- [ ] Add Mouse control for Selection Screen
+- [ ] Add Game Over Screen
+- [ ] Add Title Screen
+
 
 - [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
 - [ ] Add Pause Option
+- [ ] Test if Lasers aren't colliding with ships more than once
 
 * Enemies
 - [X] Random moving Enemy

@@ -9,7 +9,7 @@ import org.castelodelego.ludum28.Constants;
  *
  */
 public class Laser extends Flyer {
-
+	
 	public Laser(Vector2 pos, Vector2 htb) {
 		super(pos, htb);
 		speed = 300;
@@ -46,9 +46,4 @@ public class Laser extends Flyer {
 		// Simple lasers just go straight ahead
 	}
 
-	@Override
-	public void renderSprite() {
-		// TODO Auto-generated method stub
-		
-	}
 }

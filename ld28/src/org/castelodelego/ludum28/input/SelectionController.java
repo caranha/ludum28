@@ -32,16 +32,16 @@ public class SelectionController implements InputProcessor {
 			((SelectionScreen) Ludum28.selectionScreen).setPlayerMode(3);
 			return true;
 		//DIFFICULTY SELECTION	
-		case 'a':
-		case 'A':
+		case 'h':
+		case 'H':
 			((SelectionScreen) Ludum28.selectionScreen).setDifficultyLevel(0);
 			return true;
-		case 's':
-		case 'S':
+		case 'j':
+		case 'J':
 			((SelectionScreen) Ludum28.selectionScreen).setDifficultyLevel(1);
 			return true;
-		case 'd':
-		case 'D':
+		case 'k':
+		case 'K':
 			((SelectionScreen) Ludum28.selectionScreen).setDifficultyLevel(2);
 			return true;
 		// START GAME	

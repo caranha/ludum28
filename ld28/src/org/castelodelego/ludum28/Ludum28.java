@@ -56,6 +56,7 @@ public class Ludum28 extends Game {
 		// adding sound
 		Globals.manager.load("sfx/pew.ogg", Sound.class);
 		Globals.manager.load("sfx/roar.ogg", Sound.class);
+		Globals.manager.load("sfx/explosion1.ogg", Sound.class);
 	}
 	
 	@Override

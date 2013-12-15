@@ -42,6 +42,9 @@ public class Player extends Flyer {
 		offsetx = 11;
 		offsety = 8;
 		
+		shootoffsetx = 35;
+		shootoffsety = 43;
+		
 		switch (mode)
 		{
 		case MODE_WIDE: // Wide shooting mode shoots 5 shots at a time;

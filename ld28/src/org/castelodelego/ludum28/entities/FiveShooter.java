@@ -13,6 +13,7 @@ public class FiveShooter implements Shooter {
 	float CDTIMER = 0.5f;
 	float cooldown = 0;
 	
+	static Sound pewpew = Globals.manager.get("sfx/pew.ogg", Sound.class);
 	
 	@Override
 	public void Shoot(Vector2 pos, Vector2 dir, int team, float delta) {
@@ -28,14 +29,18 @@ public class FiveShooter implements Shooter {
 			
 			for (int i = 0; i < 5; i++)
 			{
-				Flyer pew = new Laser(pos.cpy(),new Vector2(10,2));
+				Laser pew = new Laser(pos.cpy(),new Vector2(10,2));
 				pew.setSpeed(500);
 				pew.setDirection(new Vector2(x, y[i]));
-				pew.setTeam(team);			
+				pew.setTeam(team);
+
+				pew.setAnim(Globals.animman.get("PlayerLaser"));
+				pew.setAnimOffset(1, 1);
+				
 				((GameScreen) Ludum28.gameScreen).addFlyer(pew);
 			}
 			
-			(Globals.manager.get("sfx/pew.ogg", Sound.class)).play(0.25f);
+			pewpew.play(0.25f);
 			
 			cooldown -= CDTIMER;
 		}

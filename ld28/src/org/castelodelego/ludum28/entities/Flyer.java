@@ -23,6 +23,9 @@ public abstract class Flyer {
 	float offsetx;
 	float offsety;
 	
+	float shootoffsetx = 0;
+	float shootoffsety = 0;
+	
 	float speed = 100; // speed in cm/second
 	Vector2 hitbox; // the X and Y size of the hitbox for this Flyer
 	
@@ -63,7 +66,7 @@ public abstract class Flyer {
 		
 		if (gun != null)
 		{
-			gun.Shoot(position, direction, team, delta);
+			gun.Shoot(new Vector2(position.x + shootoffsetx, position.y+shootoffsety), direction, team, delta);
 		}
 		
 		artificialIntelligence(delta);
@@ -166,6 +169,12 @@ public abstract class Flyer {
 	public void setAnim(Animation a)
 	{
 		anim = a;
+	}
+	
+	public void setAnimOffset(float x, float y)
+	{
+		offsetx = x;
+		offsety = y;
 	}
 	
 	public void setHitpoints(int n)

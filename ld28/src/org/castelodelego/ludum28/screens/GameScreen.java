@@ -24,6 +24,7 @@ public class GameScreen implements Screen {
 	
 	Array<Flyer> friends;
 	Array<Flyer> enemies;
+	Array<Flyer> props;
 	Player player;
 	
 	StageTimeline timeline;
@@ -40,6 +41,7 @@ public class GameScreen implements Screen {
 
 		friends = new Array<Flyer>();
 		enemies = new Array<Flyer>();		
+		props = new Array<Flyer>();
 	}
 
 	public void reset(Player p, StageTimeline t, int difficulty)
@@ -52,6 +54,7 @@ public class GameScreen implements Screen {
 		
 		friends.clear();
 		enemies.clear();
+		props.clear();
 		
 		background = t.getParallax();
 
@@ -82,6 +85,16 @@ public class GameScreen implements Screen {
 		
 		// UPDATING FLYERS -- ALLIES AND ENEMIES
 		it = friends.iterator();
+		while (it.hasNext())
+		{
+			aux = it.next();
+			if (aux.getRemove())
+				it.remove();
+			else
+				aux.update(delta);
+		}
+		
+		it = props.iterator();
 		while (it.hasNext())
 		{
 			aux = it.next();
@@ -168,6 +181,10 @@ public class GameScreen implements Screen {
 	{
 		Globals.batch.begin();
 		player.renderSprite();
+		for (Flyer aux:props)
+		{
+			aux.renderSprite();
+		}
 		for (Flyer aux:friends)
 		{
 			aux.renderSprite();
@@ -200,10 +217,17 @@ public class GameScreen implements Screen {
 	 */
 	public void addFlyer(Flyer f)
 	{
-		if (f.getTeam()==Flyer.T_PLAYER)
+		switch(f.getTeam())
+		{
+		case Flyer.T_PLAYER:
 			friends.add(f);
-		if (f.getTeam()==Flyer.T_ENEMY)
+			break;
+		case Flyer.T_ENEMY:
 			enemies.add(f);
+			break;
+		default:
+			props.add(f);
+		}
 	}
 	
 	public Flyer getPlayer()

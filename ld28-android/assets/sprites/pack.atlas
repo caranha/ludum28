@@ -5,42 +5,56 @@ filter: Nearest,Nearest
 repeat: none
 DinoMode1
   rotate: false
-  xy: 2, 36
+  xy: 2, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoMode1
   rotate: false
-  xy: 68, 36
+  xy: 68, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
 DinoRoar1
   rotate: false
-  xy: 134, 36
+  xy: 134, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 1
 DinoRoar1
   rotate: false
-  xy: 200, 36
+  xy: 200, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: 2
-SimpleEnemy
+PlayerLaser
   rotate: false
   xy: 2, 2
+  size: 12, 4
+  orig: 12, 4
+  offset: 0, 0
+  index: 1
+PlayerLaser
+  rotate: false
+  xy: 36, 36
+  size: 12, 4
+  orig: 12, 4
+  offset: 0, 0
+  index: 2
+SimpleEnemy
+  rotate: false
+  xy: 2, 8
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: 1
 SimpleEnemy
   rotate: false
-  xy: 266, 68
+  xy: 266, 74
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -71,3 +85,36 @@ parallax/Ground3
   orig: 900, 480
   offset: 0, 0
   index: -1
+
+pack3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sfx/explosion32
+  rotate: false
+  xy: 2, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 1
+sfx/explosion32
+  rotate: false
+  xy: 36, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2
+sfx/explosion32
+  rotate: false
+  xy: 70, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+sfx/explosion32
+  rotate: false
+  xy: 104, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 4
