@@ -1,4 +1,31 @@
-* Dinosaur RUSH
+
+- [X] Mouse Controls Suggested by Scott
+- [ ] Balance Scott's Control Sugestion
+  - Implemented Scott's controls - It is still kinda hard to control
+    with the mouse.
+  - Maybe I need to modify the dino's speed?
+  - Or maybe I need to track mouse movement and repeat it, instead of
+    using drag to determine direction?
+
+- [X] Made Bullets easier to see
+
+- [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
+- [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
+  create an alien that follows a sinoidal or linear, fixed path
+- [ ] STRUCTURE: Break difficulty into "Wave" and
+  "Difficulty". Difficulty is selected by the player, and only affects
+  enemy health.
+- [ ] STRUCTURE: GameScene can report on the number of enemies, and the number of enemies by class
+- [ ] STRUCTURE: enemies can test their hitbox against the game hitbox to test if they are "on screen"
+
+- [ ] BALANCE: Random Generation of enemies: Each enemy type has a generation probability, cooldown, 
+      and "MAX ON SCREEN" - Wave/Difficulty affects these values
+
+- [ ] UI: Transition between screens - add input ignoring during transitions
+- [ ] UI: Enemies "doRoar" rarely
+
+
+* LD28 Version
 
 - [X] Mouse Controls
 - [X] Flyers Can shoot shots
@@ -45,36 +72,3 @@
 - [X] Add Player death animation/Death timer
 - [X] Add Level Victory animation/Victory timer
 - [X] Add Homing Enemy
-
-
-
-- [ ] Add Non-moving Enemy
-- [ ] Add Transition to GAMEOVER screen
-- [ ] Add Transition to Main screen
-- [ ] Make it so that all enemies can "doRoar" very rarely (doRoar goes to flyer)
-- [ ] Add Pause Option
-- [ ] Test if Lasers aren't colliding with ships more than once
-
-- [ ] ISSUE: Logo does not appear in android
-- [ ] ISSUE: Android does ugly noises when pausing the app.
-- [ ] ISSUE: Zeppelins are too fast in the Asteroid Timeline (????????)
-
-* Enemies
-- [X] Random moving Enemy
-- [ ] Non-moving Enemy
-- [ ] Enemy that Zooms in on Player
-- [X] Enemy that stays in the back, shooting at the player
-- [ ] Enemy that tries to stay away from the player
-- [ ] Strong enemy that fill the screen with shots
-- [ ] Boss with a shot that covers most of the screen
-
-* Boosts
-  - [X] Wide Shooter (Shoots five lasers in an arc)
-  - [X] Thick Shooter (Shoots a big laser: Big laser has more hitpoints)
-  - [X] Shield (Can take three attacks before dying. Regenerates)
-  - [X] Speed Boost (Faster)
- 
-* Levels
-  - [ ] Non-random level with a boss
-  - [ ] Valley level
-  - [ ] Volcano level

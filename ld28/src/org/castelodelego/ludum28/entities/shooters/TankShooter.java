@@ -31,7 +31,7 @@ public class TankShooter implements Shooter {
 			
 			for (int i = 0; i < 3; i++)
 			{
-				Laser pew = new Laser(pos.cpy(),new Vector2(5,5));
+				Laser pew = new Laser(pos.cpy(),new Vector2(10,10));
 				pew.setSpeed(150);
 				pew.setAnim(Globals.animman.get("Bullet"));				
 				pew.setDirection(new Vector2(x, y[i]));

@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 public class KeyboardGameController implements InputProcessor {
 
 	long taptime;
+	Vector2 lastpos;
 	
 	Vector2 unprojectCoordinates(float x, float y)
 	{
@@ -133,6 +134,8 @@ public class KeyboardGameController implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		lastpos = unprojectCoordinates(screenX,screenY);
+		
 		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(screenX,screenY));
 		return true;
 	}
@@ -145,12 +148,17 @@ public class KeyboardGameController implements InputProcessor {
 			((GameScreen) Ludum28.gameScreen).doPlayerRoar();
 		taptime = time;
 		
+		((GameScreen) Ludum28.gameScreen).setPlayerDirection(new Vector2(0,0));		
 		return true;
 	}
+	
+	
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(screenX,screenY));
+//		((GameScreen) Ludum28.gameScreen).setPlayerTarget(unprojectCoordinates(screenX,screenY));
+		((GameScreen) Ludum28.gameScreen).setPlayerDirection(unprojectCoordinates(screenX,screenY).sub(lastpos));
+		lastpos = unprojectCoordinates(screenX,screenY);
 		return true;
 	}
 	@Override

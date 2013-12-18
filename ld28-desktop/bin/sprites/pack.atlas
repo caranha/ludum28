@@ -26,16 +26,16 @@ BigLaser
   index: 3
 Bullet
   rotate: false
-  xy: 68, 87
-  size: 5, 5
-  orig: 5, 5
+  xy: 277, 122
+  size: 10, 10
+  orig: 10, 10
   offset: 0, 0
   index: 1
 Bullet
   rotate: false
-  xy: 145, 135
-  size: 5, 5
-  orig: 5, 5
+  xy: 961, 204
+  size: 10, 10
+  orig: 10, 10
   offset: 0, 0
   index: 2
 DinoMode1
@@ -419,6 +419,32 @@ parallax/Ground3
   index: -1
 
 pack5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+parallax/GroundOld/Ground1
+  rotate: false
+  xy: 2, 2
+  size: 900, 200
+  orig: 900, 200
+  offset: 0, 0
+  index: -1
+parallax/GroundOld/Ground2
+  rotate: false
+  xy: 2, 204
+  size: 900, 320
+  orig: 900, 320
+  offset: 0, 0
+  index: -1
+parallax/GroundOld/Ground3
+  rotate: false
+  xy: 2, 526
+  size: 900, 480
+  orig: 900, 480
+  offset: 0, 0
+  index: -1
+
+pack6.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
