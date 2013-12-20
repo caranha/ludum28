@@ -100,7 +100,7 @@ public class Ludum28 extends Game {
 			Globals.debugtext.draw(Globals.batch, "FPS: "+Gdx.graphics.getFramesPerSecond(), 0, Constants.SCREEN_H);		
 			Globals.debugtext.draw(Globals.batch, "Score: "+Globals.score, Constants.SCREEN_W-130, Constants.SCREEN_H);
 			Globals.debugtext.draw(Globals.batch, "MaxScore: "+Globals.maxscore, Constants.SCREEN_W-130, Constants.SCREEN_H-20);
-			Globals.debugtext.draw(Globals.batch, "Global Difficulty: "+Globals.currentdifficulty, Constants.SCREEN_W-130, Constants.SCREEN_H-40);
+			Globals.debugtext.draw(Globals.batch, "Wave: "+Globals.wave, Constants.SCREEN_W-130, Constants.SCREEN_H-40);
 			Globals.batch.end();
 		}
 		
@@ -111,11 +111,4 @@ public class Ludum28 extends Game {
 	public void resize(int width, int height) {
 	}
 
-//	@Override
-//	public void pause() {
-//	}
-//
-//	@Override
-//	public void resume() {
-//	}
 }

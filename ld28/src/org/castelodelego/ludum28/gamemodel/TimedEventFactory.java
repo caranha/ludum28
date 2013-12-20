@@ -16,7 +16,7 @@ public class TimedEventFactory {
 		for(int i = 0; i < n; i++)
 		{
 			fl = new Flyer[1];
-			fl[0] = EnemyFactory.getBasicEnemy(difficulty);
+			fl[0] = EnemyFactory.getUfoEnemy(difficulty);
 
 			vl = new Vector2[1];
 			vl[0] = new Vector2(810,altitude);

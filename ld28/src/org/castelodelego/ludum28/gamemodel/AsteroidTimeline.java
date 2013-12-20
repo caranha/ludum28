@@ -24,9 +24,9 @@ public class AsteroidTimeline implements StageTimeline {
 	float timer;
 
 	@Override
-	public void reset(int difficulty) {
+	public void reset() {
 		timer = 0; 
-		events = prepareEvents(difficulty);
+		//events = prepareEvents();
 		pointer = events.iterator();
 		if (pointer.hasNext())		
 			current = pointer.next();

@@ -9,7 +9,7 @@ public interface StageTimeline {
 	/**
 	 * Resets the timeline
 	 */
-	public void reset(int difficulty);
+	public void reset();
 	
 	/**
 	 * Updates the timeline();

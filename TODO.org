@@ -1,11 +1,13 @@
 * Tasklist
+- [X] STRUCTURE: Break difficulty into "Wave" and
+  "Difficulty". Difficulty is selected by the player, and only affects
+  enemy health.
+
+
 - [ ] Replace Kerbal Jets with Time delaying mechanic
 - [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
 - [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
   create an alien that follows a sinoidal or linear, fixed path
-- [ ] STRUCTURE: Break difficulty into "Wave" and
-  "Difficulty". Difficulty is selected by the player, and only affects
-  enemy health.
 - [ ] STRUCTURE: GameScene can report on the number of enemies, and the number of enemies by class
 - [ ] STRUCTURE: enemies can test their hitbox against the game hitbox to test if they are "on screen"
 
@@ -79,7 +81,9 @@
 - [X] Made Bullets easier to see
 - [X] BUG: Moving the dinossaur with the mouse introduces shaking
 
-
+** commit 6502375
 - [X] MORE BASS
 - [X] BIGGER bullets
 - [X] FASTER player
+
+

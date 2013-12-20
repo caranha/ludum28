@@ -3,18 +3,17 @@ package org.castelodelego.ludum28.entities;
 
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
-import org.castelodelego.ludum28.screens.GameScreen;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * The basic enemy just moves up and down, randomly.
+ * The UFO enemy moves up and down following a sine wave
  * @author caranha
  *
  */
-public class BasicEnemy extends Flyer 
+public class UFOEnemy extends Flyer 
 {
 	// Default Variables
 	static final Sound death_default = Globals.manager.get("sfx/explosion1.ogg", Sound.class);
@@ -22,40 +21,38 @@ public class BasicEnemy extends Flyer
 	static final Animation deathanim_default = Globals.animman.get("sfx/explosion32");
 	
 	/* Behavior variables */
-	private float xdir = -80;		
-	private float maxY = 100;
-	private float ydir = 0;
-	private float ydelta = 1;
+	
+	private float ysign = 1;
+	private float ytimer = 0;
+	private float xdir = 1;
 	
 	float shaketimer;
 	Sound death = death_default;
 	
-	public BasicEnemy(Vector2 pos) 
+	public UFOEnemy(Vector2 pos) 
 	{
 		super(pos, new Vector2(28,28));
 		setTeam(Flyer.T_ENEMY);
-		setSpeed(100);
+		setSpeed(160);
 		offsetx = 2;
 		offsety = 4;
 		
 		setAnim(anim_default);
+		direction.x = xdir*-1;
+		direction.y = 0;
 	}
 	
-	public void setAmplitude(float max)
+	public void setXSpeed(float x)
 	{
-		maxY = max;
+		xdir = x;
 	}
 	
 	public void goUp(boolean t)
 	{
 		if (t)
-		{
-			ydelta = 1;
-		}
+			ysign = 1;
 		else
-		{
-			ydelta = -1;
-		}
+			ysign = -1;
 	}
 	
 	@Override
@@ -82,7 +79,7 @@ public class BasicEnemy extends Flyer
 			explosion.setDirection(direction);
 			explosion.setSpeed(speed/2);
 			
-			((GameScreen) Ludum28.gameScreen).addFlyer(explosion);
+			Ludum28.gameScreen.addFlyer(explosion);
 			return true;
 		}
 		
@@ -90,14 +87,16 @@ public class BasicEnemy extends Flyer
 	}
 
 	@Override
+	/**
+	 * The UFO Enemy follows a sine wave.
+	 * It can go slower or faster depending on the amplitude of X;
+	 */
 	void updateHook(float delta) {
+		ytimer += delta;
 		shaketimer -= delta;
-		ydir += ydelta;
-		if (ydir > maxY)
-			ydelta = ydelta*-1;
-		if (ydir < maxY*-1)
-			ydelta = ydelta*-1;		
-		setDirection(new Vector2(xdir,ydir));
+
+		direction.x = xdir*-1;
+		direction.y = (float) (Math.sin(ytimer)*ysign);		
 	}
 
 	@Override

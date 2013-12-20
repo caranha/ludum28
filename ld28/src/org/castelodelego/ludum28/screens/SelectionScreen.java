@@ -58,8 +58,9 @@ public class SelectionScreen implements Screen {
 		if (Globals.modes[selectedPlayerMode])
 		{
 			Player ship = new Player(selectedPlayerMode);
+			Globals.difficulty = selectedDifficulty;
 			(Globals.manager.get("sfx/roar.ogg", Sound.class)).play();
-			((GameScreen)Ludum28.gameScreen).reset(ship, Globals.getCurrentLevel(), Globals.getCurrentDifficulty(selectedDifficulty*4));
+			Ludum28.gameScreen.reset(ship, Globals.getCurrentLevel());
 			((Game)Gdx.app.getApplicationListener()).setScreen(Ludum28.gameScreen);
 		}
 	}

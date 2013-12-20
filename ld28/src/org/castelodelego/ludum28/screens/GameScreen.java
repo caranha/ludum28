@@ -47,13 +47,13 @@ public class GameScreen implements Screen {
 		props = new Array<Flyer>();
 	}
 
-	public void reset(Player p, StageTimeline t, int difficulty)
+	public void reset(Player p, StageTimeline t)
 	{
 		player = p;
 		p.setPosition(new Vector2(45,220));
 
 		timeline = t;
-		timeline.reset(difficulty);
+		timeline.reset();
 		
 		friends.clear();
 		enemies.clear();

@@ -8,7 +8,6 @@ import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
 import org.castelodelego.ludum28.screens.GameScreen;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -19,16 +18,17 @@ public class RandomTimeline implements StageTimeline {
 	float CD_Timer;
 	float cooldown = 0;
 	float totaltime = 0;
-	int difficulty;
+	
+	int wave;
 	
 	@Override
-	public void reset(int diff) {
+	public void reset() {
 		cooldown = 0;
 		totaltime = 0;
-		difficulty = diff;
-		Gdx.app.log("Difficulty", difficulty+"");
+
+		wave = Globals.wave;
 		
-		CD_Timer = BaseTimer*(5f/(diff+5f));		
+		CD_Timer = BaseTimer;		
 	}
 
 	@Override
@@ -45,19 +45,19 @@ public class RandomTimeline implements StageTimeline {
 			if (result < 0.65)
 			{				
 				Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-				mook = EnemyFactory.getBasicEnemy(difficulty);
+				mook = EnemyFactory.getUfoEnemy(Globals.difficulty);
 				mook.setPosition(pos);
 			}
 			else if (result < 0.9)
 			{
 				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-				mook = EnemyFactory.getDirigibleEnemy(difficulty);
+				mook = EnemyFactory.getDirigibleEnemy(Globals.difficulty);
 				mook.setPosition(pos);
 			}
 			else
 			{				
 				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*100+15);
-				mook = EnemyFactory.getTankEnemy(difficulty);
+				mook = EnemyFactory.getTankEnemy(Globals.difficulty);
 				mook.setPosition(pos);
 			}	
 			
@@ -70,7 +70,7 @@ public class RandomTimeline implements StageTimeline {
 
 	@Override
 	public boolean testWin() {
-		return totaltime > 25+difficulty*2;
+		return totaltime > 25;
 	}
 	
 	public void setSpeed(float s)

@@ -22,38 +22,37 @@ import com.badlogic.gdx.utils.Array;
 public class Globals {
 		
 	
-	public static int maxscore;
 		
 	public static AssetManager manager;
 	public static AnimationManager animman;
 	public static SpriteBatch batch;
 	public static OrthographicCamera cam;
+	public static SoundServer musicbox;
 	public static Random dice;
 		
 	public static BitmapFont debugtext;
 	static BitmapFont scorefont	;
 
-
 	public static Array<StageTimeline> levels;
 	
 	
 	// Game-based Variables
-	static int currentlevel = 0;
-	public static boolean android;
 	
+	public static boolean android;
 	public static boolean keyboard;
+
+	static int currentlevel = 0;
+	
 	public static boolean modes[] = {true, true, true, true};
 	public static boolean gameover = false;	
+
+	public static int maxscore;	
 	public static int score;
 
+	public static int wave;
+	public static int difficulty;
 	
-	static int basedifficulty = 0;
-	static int currentdifficulty = 0;
-	// Game-based Variables\
 	
-	public static SoundServer musicbox;
-	
-
 	
 	public static void init(boolean andro)
 	{
@@ -92,18 +91,11 @@ public class Globals {
 		score = 0;
 		gameover = false;
 		
-		currentdifficulty = 0;
-		currentlevel = 0;
+		wave = 0;
+		difficulty = 1;
+		currentlevel = 0;		
+	}
 		
-	}
-	
-	public static int getCurrentDifficulty(int modifier)
-	{
-		currentdifficulty = basedifficulty+modifier;
-		return currentdifficulty;
-	}
-	
-	
 	public static void playerDies(int type)
 	{
 		modes[type] = false;
@@ -119,7 +111,7 @@ public class Globals {
 	 */
 	public static void playerWins()
 	{
-		basedifficulty = currentdifficulty+1;
+		wave++;
 		currentlevel = (currentlevel+1)%levels.size;
 	}
 	
