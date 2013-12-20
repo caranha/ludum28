@@ -7,7 +7,6 @@ import org.castelodelego.ludum28.entities.shooters.FiveShooter;
 import org.castelodelego.ludum28.entities.shooters.PeaShooter;
 import org.castelodelego.ludum28.entities.shooters.Shooter;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -65,15 +64,15 @@ public class Player extends Flyer {
 			setGun(new FiveShooter());
 			break;
 		case MODE_SPEED:
-			setSpeed(400);
+			setSpeed(600);
 			break;
 		case MODE_SHIELD:
 			setHitpoints(3);
 			break;
 		case MODE_BEAM:
 			setGun(new BigShooter());
-			shootoffsetx = 23;
-			shootoffsety = 38;
+			shootoffsetx = 20;
+			shootoffsety = 34;
 			break;
 		}
 		

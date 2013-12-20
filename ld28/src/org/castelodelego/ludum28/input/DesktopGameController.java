@@ -1,6 +1,5 @@
 package org.castelodelego.ludum28.input;
 
-import org.castelodelego.ludum28.Constants;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.screens.GameScreen;

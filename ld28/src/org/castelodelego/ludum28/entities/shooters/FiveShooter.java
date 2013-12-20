@@ -31,7 +31,7 @@ public class FiveShooter implements Shooter {
 			
 			for (int i = 0; i < 5; i++)
 			{
-				Laser pew = new Laser(pos.cpy(),new Vector2(10,2));
+				Laser pew = new Laser(pos.cpy(),new Vector2(20,8));
 				pew.setSpeed(500);
 				pew.setDirection(new Vector2(x, y[i]));
 				pew.setTeam(team);
@@ -42,7 +42,7 @@ public class FiveShooter implements Shooter {
 				((GameScreen) Ludum28.gameScreen).addFlyer(pew);
 			}
 			
-			pewpew.play(0.25f);
+			pewpew.play(0.4f);
 			
 			cooldown -= CDTIMER;
 		}

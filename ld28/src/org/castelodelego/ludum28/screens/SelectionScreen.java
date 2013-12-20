@@ -97,7 +97,7 @@ public class SelectionScreen implements Screen {
 		instructions.setColor(Color.RED);
 		instructions.draw(Globals.batch);
 		
-		pressStart.setColor(((float)Math.sin(animtimer)+1)/2f,((float)Math.sin(animtimer/7)+1)/2f,((float)Math.sin(animtimer/4)+1)/2f,1);
+		pressStart.setColor(((float)Math.sin(animtimer/3)+1)/2f,((float)Math.sin(animtimer/7)+1)/2f,0,1);
 		pressStart.draw(Globals.batch);
 		
 		Globals.batch.draw(modeanim[selectedPlayerMode].getKeyFrame(animtimer), 30, 20,350,300);

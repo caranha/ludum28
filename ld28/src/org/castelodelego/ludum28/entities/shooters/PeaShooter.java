@@ -31,7 +31,7 @@ public class PeaShooter implements Shooter {
 			else
 				d = new Vector2(-1,0);
 			
-			Flyer pew = new Laser(pos.cpy(),new Vector2(10,2));
+			Flyer pew = new Laser(pos.cpy(),new Vector2(20,8));
 			pew.setSpeed(500);
 			pew.setDirection(d);
 			pew.setTeam(team);
@@ -40,7 +40,7 @@ public class PeaShooter implements Shooter {
 			pew.setAnimOffset(1, 1);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			pewpew.play(0.25f);
+			pewpew.play(0.4f);
 			
 			cooldown -= CDTIMER;
 		}		

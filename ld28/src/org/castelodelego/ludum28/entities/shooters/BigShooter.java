@@ -31,7 +31,7 @@ public class BigShooter implements Shooter {
 			else
 				d = new Vector2(-1,0);
 			
-			Flyer pew = new Laser(pos.cpy(),new Vector2(40,15));
+			Flyer pew = new Laser(pos.cpy(),new Vector2(80,20));
 			pew.setSpeed(250);
 			pew.setHitpoints(20);
 			pew.setDirection(d);
@@ -41,7 +41,7 @@ public class BigShooter implements Shooter {
 			pew.setAnimOffset(0, 0);
 			
 			((GameScreen) Ludum28.gameScreen).addFlyer(pew);
-			pewpew.play(0.30f, 0.5f, 0);
+			pewpew.play(0.5f, 0.5f, 0);
 			
 			cooldown -= CDTIMER;
 		}		

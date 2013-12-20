@@ -1,12 +1,4 @@
-
-- [X] Mouse Controls Suggested by Scott
-- [X] Balance Scott's Control Sugestion
-- [X] Make dinossaur Faster 
-- [X] Made Bullets easier to see
-- [X] BUG: Moving the dinossaur with the mouse introduces shaking
-
-
-
+* Tasklist
 - [ ] Replace Kerbal Jets with Time delaying mechanic
 - [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
 - [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
@@ -24,9 +16,6 @@
 - [ ] UI: Enemies "doRoar" rarely
 
 * "Screen Shaking"
-
-- [ ] BIGGER bullets
-- [X] FASTER player
 - [ ] ENEMIES with low HP
 - [ ] ENEMIES are pushed back with shots
 - [ ] FASTER Bullets
@@ -34,7 +23,6 @@
 - [ ] MORE weak enemies
 - [ ] MUZZLE animation
 - [ ] SCREEN shaking
-- [ ] MORE BASS
 
 * LD28 Version
 
@@ -83,3 +71,15 @@
 - [X] Add Player death animation/Death timer
 - [X] Add Level Victory animation/Victory timer
 - [X] Add Homing Enemy
+* PostCompo v1
+** commit 46c52f9
+- [X] Mouse Controls Suggested by Scott
+- [X] Balance Scott's Control Sugestion
+- [X] Make dinossaur Faster 
+- [X] Made Bullets easier to see
+- [X] BUG: Moving the dinossaur with the mouse introduces shaking
+
+
+- [X] MORE BASS
+- [X] BIGGER bullets
+- [X] FASTER player
