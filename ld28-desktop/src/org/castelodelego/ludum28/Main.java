@@ -11,6 +11,6 @@ public class Main {
 		cfg.width = Constants.SCREEN_W;
 		cfg.height = Constants.SCREEN_H;
 		
-		new LwjglApplication(new Ludum28(), cfg);
+		new LwjglApplication(new Ludum28(false), cfg);
 	}
 }

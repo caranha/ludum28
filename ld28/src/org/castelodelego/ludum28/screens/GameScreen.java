@@ -7,6 +7,7 @@ import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
+import org.castelodelego.ludum28.input.DesktopGameController;
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 
 import com.badlogic.gdx.Application;
@@ -61,7 +62,7 @@ public class GameScreen implements Screen {
 		background = t.getParallax();
 		
 		Globals.musicbox.playnext(t.getStartMusic());
-		Gdx.input.setInputProcessor(Globals.getGameController());
+		Gdx.input.setInputProcessor(new DesktopGameController(Globals.android));
 		
 		exittimer = 2.5f;
 		end = false;
@@ -281,7 +282,7 @@ public class GameScreen implements Screen {
 		}
 	}
 	
-	public Flyer getPlayer()
+	public Player getPlayer()
 	{
 		return player;
 	}

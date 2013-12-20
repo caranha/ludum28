@@ -76,7 +76,7 @@ public class DirigibleEnemy extends Flyer
 	/**
 	 * The Dirigible tries to, slowly, move towards the player.
 	 */
-	void artificialIntelligence(float delta) {
+	void updateHook(float delta) {
 		shaketimer -= delta;
 		
 		float py = ((GameScreen) Ludum28.gameScreen).getPlayer().getPosition().y;

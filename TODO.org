@@ -1,14 +1,13 @@
 
 - [X] Mouse Controls Suggested by Scott
-- [ ] Balance Scott's Control Sugestion
-  - Implemented Scott's controls - It is still kinda hard to control
-    with the mouse.
-  - Maybe I need to modify the dino's speed?
-  - Or maybe I need to track mouse movement and repeat it, instead of
-    using drag to determine direction?
-
+- [X] Balance Scott's Control Sugestion
+- [X] Make dinossaur Faster 
 - [X] Made Bullets easier to see
+- [X] BUG: Moving the dinossaur with the mouse introduces shaking
 
+
+
+- [ ] Replace Kerbal Jets with Time delaying mechanic
 - [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
 - [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
   create an alien that follows a sinoidal or linear, fixed path
@@ -24,6 +23,18 @@
 - [ ] UI: Transition between screens - add input ignoring during transitions
 - [ ] UI: Enemies "doRoar" rarely
 
+* "Screen Shaking"
+
+- [ ] BIGGER bullets
+- [X] FASTER player
+- [ ] ENEMIES with low HP
+- [ ] ENEMIES are pushed back with shots
+- [ ] FASTER Bullets
+- [ ] BIGGER explosions of enemies
+- [ ] MORE weak enemies
+- [ ] MUZZLE animation
+- [ ] SCREEN shaking
+- [ ] MORE BASS
 
 * LD28 Version
 

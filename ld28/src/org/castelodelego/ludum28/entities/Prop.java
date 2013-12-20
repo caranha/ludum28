@@ -45,7 +45,7 @@ public class Prop extends Flyer {
 	}
 
 	@Override
-	void artificialIntelligence(float delta) {
+	void updateHook(float delta) {
 		life -= delta;
 
 	}

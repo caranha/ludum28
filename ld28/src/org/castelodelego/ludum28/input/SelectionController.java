@@ -5,6 +5,9 @@ import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.screens.SelectionScreen;
 
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -29,6 +32,16 @@ public class SelectionController implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
+		
+		if (character == Input.Keys.F3)
+		{
+			if (Gdx.app.getLogLevel() == Application.LOG_DEBUG)
+				Gdx.app.setLogLevel(Application.LOG_NONE);
+			else
+				Gdx.app.setLogLevel(Application.LOG_DEBUG);
+			return true;
+		}
+		
 		switch(character)
 		{
 		// MODE SELECTION

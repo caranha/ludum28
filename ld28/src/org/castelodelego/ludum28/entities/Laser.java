@@ -42,7 +42,7 @@ public class Laser extends Flyer {
 	}
 
 	@Override
-	void artificialIntelligence(float delta) {
+	void updateHook(float delta) {
 		// Simple lasers just go straight ahead
 	}
 

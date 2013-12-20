@@ -59,24 +59,35 @@ public abstract class Flyer {
 	 */
 	public void update(float delta)
 	{
-		float mov = speed*delta; // maximum movement this tick
 		animcount += delta;
-		direction.nor();		
-		position.x += direction.x*mov;
-		position.y += direction.y*mov;
 		
-		if (gun != null)
-		{
-			gun.Shoot(new Vector2(position.x + shootoffsetx, position.y+shootoffsety), direction, team, delta);
-		}
-		
-		artificialIntelligence(delta);
+		gunLogic(delta);
+		moveLogic(delta);
+		updateHook(delta);
 		setRemove(testRemoval());
 	}
 
 	abstract boolean testRemoval();
-	abstract void artificialIntelligence(float delta);
+	abstract void updateHook(float delta);
 	abstract public void doCollision(Flyer f);
+	
+	
+	public void gunLogic(float delta)
+	{
+		if (gun != null)
+		{
+			gun.Shoot(new Vector2(position.x + shootoffsetx, position.y+shootoffsety), direction, team, delta);
+		}	
+	}
+	
+	void moveLogic(float delta)
+	{
+		direction.nor();		
+		float mov = speed*delta; // maximum movement this tick
+		position.x += direction.x*mov;
+		position.y += direction.y*mov;
+	}
+	
 	
 	/**
 	 * Tests if this flier collides with a hitbox

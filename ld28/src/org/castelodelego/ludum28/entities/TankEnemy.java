@@ -75,7 +75,7 @@ public class TankEnemy extends Flyer
 	}
 
 	@Override
-	void artificialIntelligence(float delta) {
+	void updateHook(float delta) {
 		shaketimer -= delta;
 		timer -= delta;
 		

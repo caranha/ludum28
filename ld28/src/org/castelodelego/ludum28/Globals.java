@@ -4,10 +4,8 @@ import java.util.Random;
 
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
-import org.castelodelego.ludum28.input.KeyboardGameController;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -40,8 +38,8 @@ public class Globals {
 	
 	
 	// Game-based Variables
-	static InputProcessor gamecontroller;
 	static int currentlevel = 0;
+	public static boolean android;
 	
 	public static boolean keyboard;
 	public static boolean modes[] = {true, true, true, true};
@@ -54,9 +52,13 @@ public class Globals {
 	// Game-based Variables\
 	
 	public static SoundServer musicbox;
-		
-	public static void init()
+	
+
+	
+	public static void init(boolean andro)
 	{
+		android = andro;
+		
 		debugtext = new BitmapFont();
 
 		cam = new OrthographicCamera();
@@ -73,8 +75,7 @@ public class Globals {
 		levels.add(new RandomTimeline());
 		
 		
-		maxscore = Gdx.app.getPreferences("DinoRush").getInteger("Maxscore", 0);
-		
+		maxscore = Gdx.app.getPreferences("DinoRush").getInteger("Maxscore", 0);		
 		musicbox = new SoundServer();
 	}
 	
@@ -85,7 +86,6 @@ public class Globals {
 	public static void startGame(boolean kb)
 	{
 		keyboard = kb;
-		Globals.gamecontroller = new KeyboardGameController();
 		for (int i = 0; i < 4; i++)
 			modes[i] = true;
 		
@@ -134,13 +134,6 @@ public class Globals {
 			Gdx.app.getPreferences("DinoRush").putInteger("Maxscore", maxscore);
 			Gdx.app.getPreferences("DinoRush").flush();
 		}
-	}
-
-	/** Global Getters **/
-	public static InputProcessor getGameController() {
-		if (keyboard)
-			((KeyboardGameController) gamecontroller).reset();
-		return gamecontroller;
 	}
 
 	public static StageTimeline getCurrentLevel() {

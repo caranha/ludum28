@@ -90,7 +90,7 @@ public class BasicEnemy extends Flyer
 	}
 
 	@Override
-	void artificialIntelligence(float delta) {
+	void updateHook(float delta) {
 		shaketimer -= delta;
 		ydir += ydelta;
 		if (ydir > maxY)
