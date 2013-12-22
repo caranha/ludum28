@@ -1,5 +1,6 @@
 package org.castelodelego.ludum28.gamemodel;
 
+import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.entities.UFOEnemy;
 import org.castelodelego.ludum28.entities.DirigibleEnemy;
 import org.castelodelego.ludum28.entities.TankEnemy;
@@ -16,6 +17,8 @@ public class EnemyFactory {
 		UFOEnemy mook = new UFOEnemy(new Vector2(0,0));
 		mook.setScore(difficulty+1);
 		mook.setHitpoints(difficulty+1);
+		mook.goUp(Globals.dice.nextBoolean());
+		mook.setXSpeed(2);
 		return mook;
 	}	
 	

@@ -1,8 +1,6 @@
 * Tasklist
-- [X] STRUCTURE: Break difficulty into "Wave" and
-  "Difficulty". Difficulty is selected by the player, and only affects
-  enemy health.
-
+- [X] BALANCE: Random Generation of enemies: Each enemy type has a generation probability, cooldown, 
+      and "MAX ON SCREEN" - Wave/Difficulty affects these values
 
 - [ ] Replace Kerbal Jets with Time delaying mechanic
 - [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
@@ -10,15 +8,10 @@
   create an alien that follows a sinoidal or linear, fixed path
 - [ ] STRUCTURE: GameScene can report on the number of enemies, and the number of enemies by class
 - [ ] STRUCTURE: enemies can test their hitbox against the game hitbox to test if they are "on screen"
-
-- [ ] BALANCE: Random Generation of enemies: Each enemy type has a generation probability, cooldown, 
-      and "MAX ON SCREEN" - Wave/Difficulty affects these values
-
 - [ ] UI: Transition between screens - add input ignoring during transitions
 - [ ] UI: Enemies "doRoar" rarely
 
 * "Screen Shaking"
-- [ ] ENEMIES with low HP
 - [ ] ENEMIES are pushed back with shots
 - [ ] FASTER Bullets
 - [ ] BIGGER explosions of enemies
@@ -86,4 +79,8 @@
 - [X] BIGGER bullets
 - [X] FASTER player
 
-
+** commit 2deb7b4
+- [X] ENEMIES with low HP
+- [X] STRUCTURE: Break difficulty into "Wave" and
+  "Difficulty". Difficulty is selected by the player, and only affects
+  enemy health.

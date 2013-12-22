@@ -6,63 +6,108 @@ import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.Flyer;
 import org.castelodelego.ludum28.parallax.ParallaxBackground;
 import org.castelodelego.ludum28.parallax.ParallaxLayer;
-import org.castelodelego.ludum28.screens.GameScreen;
 
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
+
+/**
+ * Generates enemies "randomly" for a stage
+ * 
+ * Rules: 
+ * - Number of enemies per wave is fixed (20+10*wave)
+ * - Enemies at the screen at the same time is fixed. (5+2*wave)
+ * - Each enemy has its own probability of showing up. (0.6, 0.3, 0.1)
+ * - Every 4 waves, things get harder:
+ *   - Cooldown reduces
+ *   - enemies give more points
+ *   - enemies have more speed
+ * 
+ * @author caranha
+ *
+ */
 public class RandomTimeline implements StageTimeline {
 
-	float BaseTimer = 1.3f;
-	float CD_Timer;
-	float cooldown = 0;
-	float totaltime = 0;
-	
 	int wave;
+	
+	
+	int totalenemies;
+	int maxenemies;
+	int basedifficulty;
+	float speedmodifier;
+	int scorebonus;
+
+	float spawnMin;
+	float spawnDelta;
+	float spawntimer;
+
+	float tankchance;
+	float dirigiblechance;
+	
+	int currentenemies = 0;
 	
 	@Override
 	public void reset() {
-		cooldown = 0;
-		totaltime = 0;
 
 		wave = Globals.wave;
 		
-		CD_Timer = BaseTimer;		
+		spawnMin = 0.6f - 0.05f*wave;
+		spawnDelta = 0.6f - 0.01f*wave;
+		
+		tankchance = (float) Math.min(0.4, 0.1f+0.05f*wave);
+		dirigiblechance = (float) Math.min(0.65, 0.3f+0.02f*wave);
+		
+		spawntimer = 0;
+		currentenemies = 0;
+		
+		totalenemies = 20 + 20*wave;
+		maxenemies = 8+4*wave;
+		
+		
+		speedmodifier = 1+0.1f*wave;
+		scorebonus = wave/2;
 	}
 
 	@Override
 	public void update(float delta) {
-		cooldown += delta;
-		totaltime += delta
-				;
-		if (cooldown > CD_Timer && !testWin()) // create an enemy
+		spawntimer -= delta;
+		
+		if ((spawntimer < 0) &&
+			(currentenemies < totalenemies))
 		{
-			Flyer mook;
-			
-			Double result = Globals.dice.nextDouble();
-			
-			if (result < 0.65)
-			{				
-				Vector2 pos = new Vector2(Constants.SCREEN_W,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-				mook = EnemyFactory.getUfoEnemy(Globals.difficulty);
-				mook.setPosition(pos);
-			}
-			else if (result < 0.9)
+			if (Globals.dice.nextFloat() < tankchance && Ludum28.gameScreen.getTotalEnemies() < maxenemies)
 			{
-				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*Constants.SCREEN_H/2+100);
-				mook = EnemyFactory.getDirigibleEnemy(Globals.difficulty);
-				mook.setPosition(pos);
-			}
-			else
-			{				
 				Vector2 pos = new Vector2(Constants.SCREEN_W+20,Globals.dice.nextFloat()*100+15);
-				mook = EnemyFactory.getTankEnemy(Globals.difficulty);
+				Flyer mook = EnemyFactory.getTankEnemy(Globals.difficulty);
 				mook.setPosition(pos);
-			}	
-			
-			((GameScreen) Ludum28.gameScreen).addFlyer(mook);
-			cooldown -= CD_Timer;
+				mook.setSpeed(mook.getSpeed()*speedmodifier);
+				mook.setScore(mook.getScore()+scorebonus);
+				Ludum28.gameScreen.addFlyer(mook);
+				currentenemies += 1;
+			}
+			if (Globals.dice.nextFloat() < dirigiblechance  && Ludum28.gameScreen.getTotalEnemies() < maxenemies)
+			{
+				Vector2 pos = new Vector2(Constants.SCREEN_W+20,(Globals.dice.nextFloat()*Constants.SCREEN_H*2f/3f)+150);
+				Flyer mook = EnemyFactory.getDirigibleEnemy(Globals.difficulty);
+				mook.setPosition(pos);
+				mook.setSpeed(mook.getSpeed()*speedmodifier);
+				mook.setScore(mook.getScore()+scorebonus);
+				Ludum28.gameScreen.addFlyer(mook);
+				currentenemies += 1;
+			}
+			if (Ludum28.gameScreen.getTotalEnemies() < maxenemies)
+			{
+				Vector2 pos = new Vector2(Constants.SCREEN_W,(Globals.dice.nextFloat()*Constants.SCREEN_H/3f)+150);
+				Flyer mook = EnemyFactory.getUfoEnemy(Globals.difficulty);
+				mook.setPosition(pos);
+				mook.setSpeed(mook.getSpeed()*speedmodifier);
+				mook.setScore(mook.getScore()+scorebonus);
+				Ludum28.gameScreen.addFlyer(mook);
+				currentenemies +=1;
+			}
+
+			spawntimer = (float) (spawnMin + Globals.dice.nextDouble()*spawnDelta);
 		}
 		
 		
@@ -70,14 +115,9 @@ public class RandomTimeline implements StageTimeline {
 
 	@Override
 	public boolean testWin() {
-		return totaltime > 25;
+		return (!(currentenemies < totalenemies));
 	}
 	
-	public void setSpeed(float s)
-	{
-		BaseTimer = s;
-	}
-
 	@Override
 	public ParallaxBackground getParallax() {
 		

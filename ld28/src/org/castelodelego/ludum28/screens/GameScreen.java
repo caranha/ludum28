@@ -5,6 +5,7 @@ import java.util.Iterator;
 import org.castelodelego.ludum28.Globals;
 import org.castelodelego.ludum28.Ludum28;
 import org.castelodelego.ludum28.entities.Flyer;
+import org.castelodelego.ludum28.entities.Laser;
 import org.castelodelego.ludum28.entities.Player;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 import org.castelodelego.ludum28.input.DesktopGameController;
@@ -27,13 +28,14 @@ public class GameScreen implements Screen {
 	
 	Array<Flyer> friends;
 	Array<Flyer> enemies;
+	Array<Flyer> bullets;
 	Array<Flyer> props;
 	Player player;
 	
 	StageTimeline timeline;
 	
 	ParallaxBackground background;
-	
+		
 	float exittimer;
 	boolean end;
 	
@@ -43,7 +45,8 @@ public class GameScreen implements Screen {
 		linedrawer.setProjectionMatrix(Globals.cam.combined);
 
 		friends = new Array<Flyer>();
-		enemies = new Array<Flyer>();		
+		enemies = new Array<Flyer>();
+		bullets = new Array<Flyer>();
 		props = new Array<Flyer>();
 	}
 
@@ -57,6 +60,7 @@ public class GameScreen implements Screen {
 		
 		friends.clear();
 		enemies.clear();
+		bullets.clear();
 		props.clear();
 		
 		background = t.getParallax();
@@ -127,6 +131,16 @@ public class GameScreen implements Screen {
 				aux.update(delta);
 		}
 		
+		it = bullets.iterator();
+		while (it.hasNext())
+		{
+			aux = it.next();
+			if (aux.getRemove())
+				it.remove();
+			else
+				aux.update(delta);
+		}
+		
 		// TESTING COLLISIONS - Allies against all enemies, enemies against the player
 		// TODO: Optimize this
 		
@@ -148,6 +162,27 @@ public class GameScreen implements Screen {
 			}
 			
 		}
+
+		for (Flyer col1: bullets)
+		{
+			for (Flyer col2: friends)
+			{
+				if (col1.testCollision(col2.getPosition(), col2.getHitbox()))
+				{
+					col1.doCollision(col2);
+					col2.doCollision(col1);
+				}
+			}
+			
+			if (col1.testCollision(player.getPosition(), player.getHitbox()))
+			{
+				player.doCollision(col1);
+				col1.doCollision(player);
+			}
+			
+		}
+
+		
 		
 		// UPDATING THE TIMELINE
 		
@@ -205,6 +240,10 @@ public class GameScreen implements Screen {
 		{
 			aux.renderDebug(linedrawer);
 		}
+		for (Flyer aux:bullets)
+		{
+			aux.renderDebug(linedrawer);
+		}		
 		linedrawer.end();		
 	}
 	
@@ -217,6 +256,10 @@ public class GameScreen implements Screen {
 			aux.renderSprite();
 		}
 		for (Flyer aux:friends)
+		{
+			aux.renderSprite();
+		}
+		for (Flyer aux:bullets)
 		{
 			aux.renderSprite();
 		}
@@ -248,18 +291,9 @@ public class GameScreen implements Screen {
 		Globals.batch.end();
 	}
 	
-	public void setPlayerDirection(Vector2 direction)
-	{
-		player.setDirection(direction);
-	}
-	
-	public void setPlayerTarget(Vector2 target)
-	{
-		player.setTarget(target);
-	}
 	public void doPlayerRoar()
 	{
-		((Player) player).doRoar();
+		player.doRoar();
 	}
 	
 	
@@ -275,7 +309,10 @@ public class GameScreen implements Screen {
 			friends.add(f);
 			break;
 		case Flyer.T_ENEMY:
-			enemies.add(f);
+			if (f instanceof Laser)
+				bullets.add(f);
+			else
+				enemies.add(f);
 			break;
 		default:
 			props.add(f);
