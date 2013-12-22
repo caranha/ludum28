@@ -1,7 +1,4 @@
 * Tasklist
-- [X] BALANCE: Random Generation of enemies: Each enemy type has a generation probability, cooldown, 
-      and "MAX ON SCREEN" - Wave/Difficulty affects these values
-
 - [ ] Replace Kerbal Jets with Time delaying mechanic
 - [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
 - [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
@@ -84,3 +81,8 @@
 - [X] STRUCTURE: Break difficulty into "Wave" and
   "Difficulty". Difficulty is selected by the player, and only affects
   enemy health.
+** commit 614a671
+- [X] BALANCE: Random Generation of enemies: Each enemy type has a generation probability, cooldown, 
+      and "MAX ON SCREEN" - Wave/Difficulty affects these values
+
+* PostCompo v2
