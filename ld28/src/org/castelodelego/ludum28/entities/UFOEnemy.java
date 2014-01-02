@@ -96,13 +96,13 @@ public class UFOEnemy extends Flyer
 		shaketimer -= delta;
 
 		direction.x = xdir*-1;
-		direction.y = (float) (Math.sin(ytimer)*ysign);		
+		direction.y = (float) (Math.sin(ytimer*2)*ysign);		
 	}
 
 	@Override
 	public void doCollision(Flyer f) {
 		shaketimer = 0.5f;
-		if (f instanceof Player)
+		if (f instanceof Player && f.getHitpoints() > 0)
 			hitpoints -= 10000;
 		else	
 			hitpoints -= 1;

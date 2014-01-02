@@ -1,11 +1,31 @@
 * Tasklist
+- [ ] Change tank bullet to be even more visible
+- [ ] Add particle for laser hits
+- [ ] Mega Laser is not mega enough
+- [ ] Add screen shake during Roar
+- [ ] New Title screen
+  - [ ] Difficulty selection on Title Screen
+  - [ ] Swipe sideways/touch for instructions/About screen
+- [ ] New Selection Screen
+  - [ ] Display current wave number (next wave:)
+  - [ ] Display parallax of current wave on the background
+  - [ ] Remove all text/selection except for power up selection
+  - [ ] Game starts when clicking on the dinosaur
+- [ ] End Game reports on total waves and number of enemies dead.
+
+
+- [ ] STRUCTURE: Add "flyer age"
 - [ ] Replace Kerbal Jets with Time delaying mechanic
-- [ ] BUG: Adding multiple enemies at once via EventFactory creates super fast enemies
-- [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for example,
-  create an alien that follows a sinoidal or linear, fixed path
-- [ ] STRUCTURE: GameScene can report on the number of enemies, and the number of enemies by class
-- [ ] STRUCTURE: enemies can test their hitbox against the game hitbox to test if they are "on screen"
-- [ ] UI: Transition between screens - add input ignoring during transitions
+- [ ] BUG: Adding multiple enemies at once via EventFactory creates
+  super fast enemies
+- [ ] STRUCTURE: Add "AI PATH" hook to Enemy AI, so that we can, for
+  example, create an alien that follows a sinoidal or linear, fixed
+  path
+- [ ] STRUCTURE: GameScene report on number of enemies by class
+- [ ] STRUCTURE: enemies can test their hitbox against the game hitbox
+  to test if they are "on screen"
+- [ ] UI: Transition between screens - add input ignoring during
+  transitions
 - [ ] UI: Enemies "doRoar" rarely
 
 * "Screen Shaking"
@@ -86,3 +106,8 @@
       and "MAX ON SCREEN" - Wave/Difficulty affects these values
 
 * PostCompo v2
+
+** commit 
+- [X] Formation Factory: "Add N enemies of type X during Y seconds"
+- [X] Reduced the wobble period for the UFO enemy
+- [X] Fixed the generic Timeline framework

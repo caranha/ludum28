@@ -2,6 +2,7 @@ package org.castelodelego.ludum28;
 
 import java.util.Random;
 
+import org.castelodelego.ludum28.gamemodel.RandomEventTimeline;
 import org.castelodelego.ludum28.gamemodel.RandomTimeline;
 import org.castelodelego.ludum28.gamemodel.StageTimeline;
 
@@ -70,13 +71,18 @@ public class Globals {
 		dice = new Random();
 		
 		levels = new Array<StageTimeline>();
-		//levels.add(new AsteroidTimeline());
-		levels.add(new RandomTimeline());
-		
+		levels.add(new RandomEventTimeline());
+		//levels.add(new RandomTimeline());
+
 		
 		maxscore = Gdx.app.getPreferences("DinoRush").getInteger("Maxscore", 0);		
 		musicbox = new SoundServer();
 	}
+	
+	
+	
+	
+	
 	
 	/** 
 	 * Called when a new game is started from scratch
@@ -84,6 +90,7 @@ public class Globals {
 	 */
 	public static void startGame(boolean kb)
 	{
+		
 		keyboard = kb;
 		for (int i = 0; i < 4; i++)
 			modes[i] = true;

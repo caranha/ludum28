@@ -48,5 +48,7 @@ public class ParallaxBackground {
          batch.end();
       }
    }
+   
+
 }
 
